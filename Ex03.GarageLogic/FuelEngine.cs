@@ -15,7 +15,21 @@ namespace Ex03.GarageLogic
             Octan96,
             Octan98,
         }
+
         eFuelType m_FuelType;
+
+        public eFuelType FeulType
+        {
+            get
+            {
+                return m_FuelType;
+            }
+
+            set
+            {
+                m_FuelType = value;
+            }
+        }
 
     }
 }

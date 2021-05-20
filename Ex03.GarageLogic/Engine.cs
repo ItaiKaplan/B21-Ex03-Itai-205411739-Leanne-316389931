@@ -17,6 +17,11 @@ namespace Ex03.GarageLogic
             {
                 return m_MaxCapacity;
             }
+
+            set
+            {
+                m_MaxCapacity = value;
+            }
         }
         public float CurrentCapacity
         {
