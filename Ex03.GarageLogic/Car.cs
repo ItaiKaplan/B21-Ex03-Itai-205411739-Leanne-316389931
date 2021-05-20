@@ -22,7 +22,34 @@ namespace Ex03.GarageLogic
             4,
             5
         }
+
         eColor m_Color;
         eNumberOfDoors m_NumberOfDoors;
+
+        public eColor Color
+        {
+            get
+            {
+                return m_Color;
+            }
+
+            set
+            {
+                m_Color = value;
+            }
+        }
+
+        public eNumberOfDoors NumberOfDoors
+        {
+            get
+            {
+                return NumberOfDoors;
+            }
+
+            set
+            {
+                m_NumberOfDoors = value;
+            }
+        }
     }
 }

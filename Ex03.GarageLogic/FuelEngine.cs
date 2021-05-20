@@ -15,12 +15,21 @@ namespace Ex03.GarageLogic
             Octan96,
             Octan98,
         }
+
         eFuelType m_FuelType;
 
-        public FuelEngine(float i_MaxCapacity, float i_CurrentCapacity, eFuelType i_FuelType)
+        public eFuelType FeulType
         {
-            base();
+            get
+            {
+                return m_FuelType;
+            }
 
+            set
+            {
+                m_FuelType = value;
+            }
         }
+
     }
 }
