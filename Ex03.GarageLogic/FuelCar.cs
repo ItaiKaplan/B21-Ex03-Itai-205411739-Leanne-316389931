@@ -8,5 +8,11 @@ namespace Ex03.GarageLogic
 {
     class FuelCar : Car
     {
+        public FuelCar()
+        {
+            this.Engine = new FuelEngine();
+            this.Engine.MaxCapacity = 45;
+            this.Engine.FuelType = FuelEngine.eFuelType.Octan95;      
+        }
     }
 }
