@@ -36,12 +36,14 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public void RefillGas(float i_GasAmountToFill)
+        public void RefillEnergySource(float i_GasAmountToFill)
         {
+
             if(this.CurrentCapacity + i_GasAmountToFill > this.MaxCapacity)
             {
                 throw Exception;
             }
         }
+
     }
 }
