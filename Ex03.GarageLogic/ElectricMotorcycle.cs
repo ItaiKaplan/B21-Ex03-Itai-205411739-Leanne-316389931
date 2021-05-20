@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
     {
         public ElectricMotorcycle()
         {
-            this.
+            
         }
     }
 }

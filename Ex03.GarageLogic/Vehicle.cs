@@ -11,7 +11,7 @@ namespace Ex03.GarageLogic
         string m_ModelName;
         string m_LicenseNumber;
         float m_RemainingEnergyPrecentage;
-        Engine m_Engine; //????
+        Engine m_Engine;
         Dictionary<int, Wheel> m_Wheels;
 
         public string ModelName
@@ -63,6 +63,19 @@ namespace Ex03.GarageLogic
             set
             {
                 m_Engine = value;
+            }
+        }
+
+        public  Dictionary<int, Wheel> WheelsDict
+        {
+            get
+            {
+                return m_Wheels;
+            }
+
+            set
+            {
+                m_Wheels = value;
             }
         }
 

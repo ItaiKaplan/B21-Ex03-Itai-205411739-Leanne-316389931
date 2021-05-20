@@ -12,7 +12,7 @@ namespace Ex03.GarageLogic
         {
             this.Engine = new FuelEngine();
             this.Engine.MaxCapacity = 45;
-            this.Engine.FuelType = FuelEngine.eFuelType.Octan95;      
+            this.Engine.FuelType = FuelEngine.eFuelType.Octan95;
         }
     }
 }
