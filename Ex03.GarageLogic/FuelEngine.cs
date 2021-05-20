@@ -16,7 +16,7 @@ namespace Ex03.GarageLogic
             Octan98,
         }
 
-        eFuelType m_FuelType;
+        readonly eFuelType m_FuelType;
 
         public eFuelType FuelType
         {

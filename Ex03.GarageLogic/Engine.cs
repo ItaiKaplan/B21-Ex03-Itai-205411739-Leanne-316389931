@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic
 {
     public class Engine
     {
-        float m_MaxCapacity;
+        readonly float m_MaxCapacity;
         float m_CurrentCapacity;
 
         public float MaxCapacity
@@ -36,12 +36,13 @@ namespace Ex03.GarageLogic
             }
         }
 
+
         public void RefillEnergySource(float i_GasAmountToFill)
         {
 
             if(this.CurrentCapacity + i_GasAmountToFill > this.MaxCapacity)
             {
-                throw Exception;
+              
             }
         }
 
