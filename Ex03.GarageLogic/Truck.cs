@@ -11,5 +11,10 @@ namespace Ex03.GarageLogic
         Engine m_Engine;
         bool m_ContainsDangerousMaterials;
         float m_MaxCarryWeight;
+
+        public Truck()
+        {
+            this.m_Engine = new FuelEngine()
+        }
     }
 }

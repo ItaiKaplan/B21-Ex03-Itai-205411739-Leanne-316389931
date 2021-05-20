@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class FuelEngine : Engine
+   `class FuelEngine : Engine
     {
         enum eFuelType
         {
@@ -16,5 +16,11 @@ namespace Ex03.GarageLogic
             Octan98,
         }
         eFuelType m_FuelType;
+
+        public FuelEngine(float i_MaxCapacity, float i_CurrentCapacity, eFuelType i_FuelType)
+        {
+            base();
+
+        }
     }
 }
