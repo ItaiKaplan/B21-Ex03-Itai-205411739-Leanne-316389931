@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic
 {
     public abstract class Engine
     {
-        float m_MaxCapacity;
+        readonly float m_MaxCapacity;
         float m_CurrentCapacity;
 
         public float MaxCapacity

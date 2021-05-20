@@ -14,7 +14,8 @@ namespace Ex03.GarageLogic
 
         public Truck()
         {
-            this.m_Engine = new FuelEngine()
+            this.m_Engine = new FuelEngine();
+            this.Engine.MaxCapacity = 120;
         }
     }
 }
