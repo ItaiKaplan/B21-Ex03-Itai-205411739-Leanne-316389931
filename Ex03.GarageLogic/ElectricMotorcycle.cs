@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class Truck : Vehicle
+    class ElectricMotorcycle : Motorcycle
     {
-        Engine m_Engine;
-        bool m_ContainsDangerousMaterials;
-        float m_MaxCarryWeight;
+        public ElectricMotorcycle()
+        {
+            this.
+        }
     }
 }

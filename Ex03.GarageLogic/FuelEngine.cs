@@ -16,6 +16,5 @@ namespace Ex03.GarageLogic
             Octan98,
         }
         eFuelType m_FuelType;
-
     }
 }
