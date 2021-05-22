@@ -10,7 +10,8 @@ namespace Ex03.GarageLogic
     {
         public FuelMotorcycle()
         {
-            this.Wheels = 
+            base();
+            this.m_Engine = new FuelEngine();
         }
     }
 }

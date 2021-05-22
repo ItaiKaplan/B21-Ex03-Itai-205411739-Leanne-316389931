@@ -16,7 +16,13 @@ namespace Ex03.GarageLogic
             Octan98,
         }
 
-        protected eFuelType m_FuelType;
+        eFuelType m_FuelType;
+
+        public FuelEngine(eFuelType i_FuelType, float i_MaxCapacity)
+            :base(i_MaxCapacity)
+        {
+            m_FuelType = i_FuelType;
+        }
 
         public eFuelType FuelType
         {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    protected class Motorcycle : Vehicle
+    public class Motorcycle : Vehicle
     {
-        protected enum eLicenseType
+        public enum eLicenseType
         {
             A,
             B1,

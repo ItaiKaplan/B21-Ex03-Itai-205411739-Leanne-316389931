@@ -6,38 +6,26 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    public abstract class Vehicle 
+    public class Vehicle 
     {
-        string m_ModelName;
-        string m_LicenseNumber;
-        float m_RemainingEnergyPrecentage;
-        Engine m_Engine;
-        Dictionary<int, Wheel> m_Wheels;
+        string m_ModelName = string.Empty;
+        string m_LicenseNumber = string.Empty;
+        float m_RemainingEnergyPrecentage = 0;
+        Engine m_Engine = null;
+        List<Wheel> m_Wheels = new List<Wheel>();
 
         public string ModelName
         {
-            get
-            {
-                return m_ModelName;
-            }
+            get { return m_ModelName; }
 
-            set
-            {
-                m_ModelName = value;
-            }
+            set { m_ModelName = value; }
         }
 
         public string LicenseNumber
         {
-            get
-            {
-                return m_LicenseNumber;
-            }
+            get { return m_LicenseNumber; }
 
-            set
-            {
-                m_LicenseNumber = value;
-            }
+            set { m_LicenseNumber = value; }
         }
 
         public float RemainingEnergyPrecentage
@@ -66,7 +54,7 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public  Dictionary<int, Wheel> WheelsDict
+        public List<Wheel> Wheels
         {
             get
             {
@@ -75,7 +63,7 @@ namespace Ex03.GarageLogic
 
             set
             {
-                m_Wheels = value;
+                m_Wheels.Add(new Wheel(value));
             }
         }
 

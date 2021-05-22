@@ -8,23 +8,35 @@ namespace Ex03.GarageLogic
 {
     class Car : Vehicle
     {
-        enum eColor
+        public enum eColor
         {
-            Red,
-            Silver,
-            White,
-            Black
-        }
-        enum eNumberOfDoors
-        {
-            2
-            3
-            4
-            5
+            Red = 1,
+            Silver = 2,
+            White = 3,
+            Black = 4
         }
 
+        public enum eNumberOfDoors
+        {
+            Two = 2,
+            Three = 3,
+            Four = 4,
+            Five = 5
+        }
+
+        const int k_NumberOfWheels = 4;
+        const int k_MaxWheelPressure = 32;
         eColor m_Color;
         eNumberOfDoors m_NumberOfDoors;
+
+        public Car()
+            : base()
+        { 
+            for(int i = 0; i < k_NumberOfWheels; i++)
+            {
+                this.Wheels(k_MaxWheelPressure);
+            }
+        }
 
         public eColor Color
         {
