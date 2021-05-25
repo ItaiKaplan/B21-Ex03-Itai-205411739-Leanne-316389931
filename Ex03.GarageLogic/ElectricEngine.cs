@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class ElectricEngine : Engine
+    public class ElectricEngine : Engine
     { 
+        public ElectricEngine(float i_MaxCapacity)
+            :base(i_MaxCapacity)
+        {
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class Car : Vehicle
+    public class Car : Vehicle
     {
         public enum eColor
         {
@@ -34,7 +34,7 @@ namespace Ex03.GarageLogic
         { 
             for(int i = 0; i < k_NumberOfWheels; i++)
             {
-                this.Wheels(k_MaxWheelPressure);
+                AddWheel(new Wheel(k_MaxWheelPressure));
             }
         }
 
@@ -62,6 +62,18 @@ namespace Ex03.GarageLogic
             {
                 m_NumberOfDoors = value;
             }
+        }
+
+        public override string ToString()
+        {
+            string msg;
+
+            msg = string.Format(
+@"{0},
+Number of doors: {1},
+Color: {2}", base.ToString(), m_NumberOfDoors, m_Color);
+
+            return msg;
         }
     }
 }

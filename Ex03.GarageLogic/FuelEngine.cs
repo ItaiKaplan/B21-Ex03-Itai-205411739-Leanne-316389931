@@ -19,7 +19,7 @@ namespace Ex03.GarageLogic
         eFuelType m_FuelType;
 
         public FuelEngine(eFuelType i_FuelType, float i_MaxCapacity)
-            :base(i_MaxCapacity)
+            : base(i_MaxCapacity)
         {
             m_FuelType = i_FuelType;
         }
@@ -36,6 +36,16 @@ namespace Ex03.GarageLogic
                 m_FuelType = value;
             }
         }
+
+        public void RefillFuel(eFuelType i_FuelType, float i_AmountOfFuelToFill)
+        {
+            if (i_FuelType.GetTypeCode() == m_FuelType.GetTypeCode())
+            {
+                RefillEnergySource(i_AmountOfFuelToFill);
+            }
+        }
+
+
 
     }
 }

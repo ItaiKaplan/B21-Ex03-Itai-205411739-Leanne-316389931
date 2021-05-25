@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    public class Vehicle 
+    public abstract class Vehicle 
     {
         string m_ModelName = string.Empty;
         string m_LicenseNumber = string.Empty;
         float m_RemainingEnergyPrecentage = 0;
-        Engine m_Engine = null;
-        List<Wheel> m_Wheels = new List<Wheel>();
+        protected Engine m_Engine = null;
+        readonly List<Wheel> m_Wheels = new List<Wheel>();
+        VehicleGarageInfo m_VehicleGarageInfo = null; 
+
+        public VehicleGarageInfo VehicleInfo
+        {
+            get { return m_VehicleGarageInfo; }
+            set { m_VehicleGarageInfo = value; }
+        }
 
         public string ModelName
         {
@@ -56,15 +63,58 @@ namespace Ex03.GarageLogic
 
         public List<Wheel> Wheels
         {
-            get
+            get { return m_Wheels; }
+        }
+
+        protected void AddWheel(Wheel i_WheelToAdd)
+        {
+            Wheels.Add(i_WheelToAdd);
+        }
+
+        public void SetEnergyPercentage()
+        {
+            m_RemainingEnergyPrecentage = (m_Engine.CurrentCapacity / m_Engine.MaxCapacity) * 100;
+        }
+
+        public override bool Equals(object obj)
+        {
+            bool equals = false;
+
+            Vehicle toCompareTo = obj as Vehicle;
+            if(toCompareTo != null)
             {
-                return m_Wheels;
+                equals = this.LicenseNumber.Equals(toCompareTo.LicenseNumber);
             }
 
-            set
-            {
-                m_Wheels.Add(new Wheel(value));
-            }
+            return equals;
+        }
+
+        public static bool operator ==(Vehicle i_FirstVehicle, Vehicle i_SecondVehicle)
+        {
+            return (i_FirstVehicle.Equals(i_SecondVehicle));
+        }
+
+        public static bool operator !=(Vehicle i_FirstVehicle, Vehicle i_SecondVehicle)
+        {
+            return !(i_FirstVehicle.Equals(i_SecondVehicle));
+        }
+
+        public override string ToString()
+        {
+            string msg;
+
+            msg = string.Format(
+@"Model Name: {0},
+LicenseNumber: {1},
+RemainingEnergyPrecentage: {2}%  
+Wheels info:
+        Numer of wheels : {3}
+        Wheel condition : {4}    
+Stage In Garage: {5}
+Owner Name: {6}
+Owner Phone Number: {7}", m_ModelName, m_LicenseNumber, m_RemainingEnergyPrecentage, m_Wheels.Count,m_Wheels[0], m_VehicleGarageInfo.VehicleCondition, m_VehicleGarageInfo.OwnerName, m_VehicleGarageInfo.OwnerPhoneNumber);
+            
+            return msg;
         }
 
     }

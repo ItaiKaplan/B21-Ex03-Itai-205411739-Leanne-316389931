@@ -16,16 +16,18 @@ namespace Ex03.GarageLogic
             BB
         }
 
+        const int k_NumberOfWheels = 2;
+        const int k_MaxWheelPressure = 30;
         eLicenseType m_LicenseType;
         int m_EngineVolume;
 
         public Motorcycle()
+            : base()
         {
-            base();
-            Dictionary<int,Wheel> WheelsDict = new Dictionary<int, Wheel>(2);
-            WheelsDict.Add(1, new Wheel(30));
-            WheelsDict.Add(1, new Wheel(30));
-            this.WheelsDict = WheelsDict;
+            for (int i = 0; i < k_NumberOfWheels; i++)
+            {
+                this.AddWheel(new Wheel(k_MaxWheelPressure));
+            }
         }
 
 
@@ -54,6 +56,18 @@ namespace Ex03.GarageLogic
             {
                 m_EngineVolume = value; 
             }
+        }
+
+        public override string ToString()
+        {
+            string msg;
+
+            msg = string.Format(
+@"{0},
+License Type: {1},
+Engine Volume: {2}", base.ToString(), m_LicenseType, m_EngineVolume);
+
+            return msg;
         }
 
 

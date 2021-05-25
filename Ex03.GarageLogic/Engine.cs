@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    public abstract class Engine
+    public class Engine
     {
         readonly protected float r_MaxCapacity = 0;
         float m_CurrentCapacity = 0;
+
+        public Engine(float i_MaxCapacity)
+        {
+            r_MaxCapacity = i_MaxCapacity;
+        }
 
         public float MaxCapacity
         {
@@ -31,12 +36,15 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public Engine(float i_MaxCapacity)
+        public void RefillEnergySource(float i_EnergyAmountToFill)
         {
-            r_MaxCapacity = i_MaxCapacity;
+            if(m_CurrentCapacity + i_EnergyAmountToFill <= r_MaxCapacity)
+            {
+                m_CurrentCapacity = m_CurrentCapacity + i_EnergyAmountToFill;
+            }
         }
 
-        public abstract void RefillEnergySource(float i_GasAmountToFill);
+
 
 
     }

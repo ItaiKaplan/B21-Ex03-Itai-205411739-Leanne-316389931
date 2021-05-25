@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class Wheel
+    public class Wheel
     {
         string m_ManufacturerName = string.Empty;
         float m_CurrentAirPressure;
-        readonly float m_MaxAirPressure;
+        readonly float r_MaxAirPressure;
 
         public Wheel(float i_MaxAirPressure)
         {
-            m_MaxAirPressure = i_MaxAirPressure;
+            r_MaxAirPressure = i_MaxAirPressure;
         }
 
         public string ManufacturerName
@@ -47,16 +47,32 @@ namespace Ex03.GarageLogic
         {
             get
             {
-                return m_MaxAirPressure;
+                return r_MaxAirPressure;
             }
         }
 
         public void InflateWheel(float i_AirToAdd)
         {
-            if(m_CurrentAirPressure + i_AirToAdd <= m_MaxAirPressure)
+            if(m_CurrentAirPressure + i_AirToAdd <= r_MaxAirPressure)
             {
                 m_CurrentAirPressure += i_AirToAdd;
             }
+        }
+
+        public void FillAirToMax()
+        {
+            m_CurrentAirPressure = r_MaxAirPressure;
+        }
+
+        public override string ToString()
+        {
+            string msg;
+
+            msg = string.Format(
+@"ManufacturerName: {0}
+Air Pressure: {1} / {2}", m_ManufacturerName, m_CurrentAirPressure, r_MaxAirPressure);
+
+            return msg;
         }
     }
 }
