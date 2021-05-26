@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex03.ConsoleUI
 {
-    static class MainManu
+    class ManuToUser
     {
         enum eMainManu
         {
@@ -25,10 +25,9 @@ namespace Ex03.ConsoleUI
             VehicleInfo = 5
         }
 
+        public void NextStep(int i_Input)
+        {
 
-
-
-
-
+        }
     }
 }
