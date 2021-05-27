@@ -37,9 +37,9 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public void RefillFuel(eFuelType i_FuelType, float i_AmountOfFuelToFill)
+        public void FillFuel(eFuelType i_FuelType, float i_AmountOfFuelToFill)
         {
-            if (i_FuelType.GetTypeCode() == m_FuelType.GetTypeCode())
+            if ((int)i_FuelType == (int)m_FuelType)
             {
                 RefillEnergySource(i_AmountOfFuelToFill);
             }

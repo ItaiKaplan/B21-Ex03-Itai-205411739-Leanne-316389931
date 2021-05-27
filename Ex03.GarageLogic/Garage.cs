@@ -8,15 +8,6 @@ namespace Ex03.GarageLogic
 {
     public class Garage
     {
-        public enum eVehicleTypes
-        {
-            FuelMotorcycle = 1,
-            ElectricMotorcycle = 2,
-            FuelCar = 3,
-            ElectricCar = 4,
-            FuelTruck = 5
-        }
-
         readonly Dictionary<string, Vehicle> r_VehiclesInGarage = new Dictionary<string, Vehicle>();
 
         public void AddVehicleToGarage(Vehicle i_Vehicle)
@@ -46,6 +37,10 @@ namespace Ex03.GarageLogic
                     }
                 }
             }
+            else
+            {
+                throw new Exception("No vehicls in garage");
+            }
 
             return licensNumberList.ToString();
         }
@@ -59,6 +54,10 @@ namespace Ex03.GarageLogic
                 {
                     licensNumberList.Append(vehicle.LicenseNumber + "\n");
                 }
+            }
+            else
+            {
+                throw new Exception("No vehicls in garage");
             }
 
             return licensNumberList.ToString();
@@ -90,7 +89,7 @@ namespace Ex03.GarageLogic
                     throw new ArgumentException("Fuel Type is not a match");
                 }
 
-                fuelEngine.RefillFuel(i_FuelType, i_AmountToFill);
+                fuelEngine.FillFuel(i_FuelType, i_AmountToFill);
                 r_VehiclesInGarage[i_LicenseNumber].SetEnergyPercentage();
             }
             else

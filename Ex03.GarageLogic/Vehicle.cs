@@ -41,11 +41,6 @@ namespace Ex03.GarageLogic
             {
                 return m_RemainingEnergyPrecentage;
             }
-
-            set
-            {
-                m_RemainingEnergyPrecentage = value;
-            }
         }
 
         public Engine Engine

@@ -41,8 +41,13 @@ namespace Ex03.GarageLogic
             if(m_CurrentCapacity + i_EnergyAmountToFill <= r_MaxCapacity)
             {
                 m_CurrentCapacity = m_CurrentCapacity + i_EnergyAmountToFill;
+            } else
+            {
+                throw new ValueOutOfRangeException(0, r_MaxCapacity - m_CurrentCapacity);
             }
         }
+
+
 
 
 

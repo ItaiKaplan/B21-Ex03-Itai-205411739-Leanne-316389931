@@ -39,10 +39,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputOutputIser.cs" />
+    <Compile Include="GarageAction.cs" />
+    <Compile Include="InputValidation.cs" />
     <Compile Include="ManuToUser.cs" />
     <Compile Include="MessegesToUser.cs" />
+    <Compile Include="OutputUser.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="VehicleAction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ex03.GarageLogic\Ex03.GarageLogic.csproj">
+      <Project>{18978e30-bfd8-4749-90fe-62092071834e}</Project>
+      <Name>Ex03.GarageLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,17 +12,13 @@ namespace Ex03.ConsoleUI
         {
             AddVehicleToGarage = 1,
             ShowAllVehicles = 2,
-            ShowVehiclesFilter = 3,
-            VehicleOption = 4,
-        }
-
-        enum eVehicleManu
-        {
-            ChangeVehicleStatus = 1,
-            FillAirWheels = 2,
-            FillFuelVehicle = 3,
-            FillElectricVehicle = 4,
-            VehicleInfo = 5
+            ShowVehiclesWithFilter = 3,
+            ChangeVehicleStatus = 4,
+            FillAirWheels = 5,
+            FillFuelVehicle = 6,
+            FillElectricVehicle = 7,
+            VehicleInfo = 8,
+            Exit = 9
         }
 
         public void NextStep(int i_Input)
