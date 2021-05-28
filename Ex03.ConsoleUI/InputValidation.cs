@@ -126,10 +126,12 @@ namespace Ex03.ConsoleUI
         public static int EnumChoiseToInt(Type i_EnumType, String i_msg)
         {
             string userInput;
+            string msg;
             int userChoise;
             int minChoise = 1;
             int maxChoise;
 
+            UserConsole.SleepAndClear();
             UserConsole.Print(i_msg);
             UserConsole.Print(UserConsole.EnumToString(i_EnumType));
             userInput = UserConsole.Read();
@@ -140,6 +142,8 @@ namespace Ex03.ConsoleUI
                 throw new ValueOutOfRangeException((float)minChoise, (float)maxChoise);
             }
 
+            msg = string.Format(@"You choose {0}", userChoise);
+            UserConsole.Print(msg);
             return userChoise;
         }
     }

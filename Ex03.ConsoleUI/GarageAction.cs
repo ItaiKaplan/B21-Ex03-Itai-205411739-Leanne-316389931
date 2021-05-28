@@ -29,20 +29,20 @@ namespace Ex03.ConsoleUI
                         UserConsole.ChooseString("vehicle type"));
                     vehicle = VehicleFactory.InitVehicle(vehicleType);
                     vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
-                    vehicle.LicenseNumber = InputValidation.GetStringNumber("\nEnter License number: ");
+                    vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
+                    r_Garage.AddVehicleToGarage(vehicle);
                     break;
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
-
             vehicle.VehicleInfo = setVehicleInfo();
             setEnergy(vehicle);
             setWheelInfo(vehicle);
+            UserConsole.Print("\n");
             setExtraDeatails(vehicle);
-            r_Garage.AddVehicleToGarage(vehicle);
             UserConsole.Print("\nVehicle was added successfully!");
             endAction();
 
@@ -62,7 +62,7 @@ namespace Ex03.ConsoleUI
                 }
                 catch(Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
 
@@ -102,7 +102,7 @@ namespace Ex03.ConsoleUI
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
 
@@ -124,7 +124,7 @@ namespace Ex03.ConsoleUI
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
 
@@ -152,8 +152,7 @@ namespace Ex03.ConsoleUI
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
-                    break;
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
         }
@@ -186,11 +185,10 @@ namespace Ex03.ConsoleUI
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
         }
-
 
         private void setMotorcycleInfo(Motorcycle i_Motorcycle)
         {
@@ -204,7 +202,7 @@ namespace Ex03.ConsoleUI
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
         }
@@ -221,7 +219,7 @@ namespace Ex03.ConsoleUI
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
         }
@@ -235,7 +233,7 @@ namespace Ex03.ConsoleUI
                 endAction();
             } catch(Exception ex)
             {
-                UserConsole.Print(ex.Message);
+                UserConsole.ExceptionOutput(ex);
                 endAction();
             }
         }
@@ -254,8 +252,7 @@ namespace Ex03.ConsoleUI
                     break;
                 } catch(Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
-                    break;
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
 
@@ -264,8 +261,7 @@ namespace Ex03.ConsoleUI
 
         private void endAction()
         {
-            UserConsole.PrintAndRead("\nEnter any key to go back to the main manu");
-            UserConsole.Clear();
+            UserConsole.SleepAndClear();
             MenuToUser.NextStepMainManu(r_Garage);
         }
 

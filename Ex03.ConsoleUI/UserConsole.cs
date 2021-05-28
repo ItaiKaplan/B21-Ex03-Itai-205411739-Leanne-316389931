@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
 
 namespace Ex03.ConsoleUI
 {
@@ -54,6 +55,8 @@ namespace Ex03.ConsoleUI
         public static void MainManu()
         {
             string msg = string.Format(@"
+M A I N    M A N U :
+
 Please enter the number of the operation you would like to preform:
 1. Add a new vehicle to the garage
 2. Show All Vehicles in the garage
@@ -66,6 +69,8 @@ Please enter the number of the operation you would like to preform:
         public static void VehicleManu()
         {
             string msg = string.Format(@"
+V E H I C L E    M A N U :
+
 Please enter the number of the operation you would like to preform:
 1. Change vehicle status 
 2. Fill air in wheels  
@@ -75,5 +80,18 @@ Please enter the number of the operation you would like to preform:
 6. Back to main manu");
             Print(msg);
         }
+
+        public static void ExceptionOutput(Exception i_Exception)
+        {
+            ClearAndPrint(i_Exception.Message);
+        }
+
+        public static void SleepAndClear()
+        {
+            Thread.Sleep(1000);
+            Clear();
+        }
+
+
     }
 }

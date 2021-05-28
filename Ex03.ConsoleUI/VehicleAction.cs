@@ -16,8 +16,7 @@ namespace Ex03.ConsoleUI
 
         private void endAction()
         {
-            UserConsole.PrintAndRead("Enter any key to go back to the manu");
-            UserConsole.Clear();
+            UserConsole.SleepAndClear();
             MenuToUser.NextStepVehicleManu(r_Garage);
         }
         

@@ -43,6 +43,7 @@ namespace Ex03.ConsoleUI
                 }
             }
 
+            UserConsole.SleepAndClear();
             switch(userChoise)
             {
                 case 1:
@@ -88,6 +89,7 @@ namespace Ex03.ConsoleUI
             }
 
             VehicleAction vehicleAction = new VehicleAction(vehicle, i_Garage);
+            UserConsole.SleepAndClear();
             switch (userChoise)
             {
                 case 1:

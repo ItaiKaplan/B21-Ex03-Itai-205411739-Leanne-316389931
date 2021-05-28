@@ -8,7 +8,7 @@ namespace Ex03.ConsoleUI
 
         internal void StartGarageApp()
         {
-            UserConsole.Print("░W░e░l░c░o░m░e░ ░t░o░ ░t░h░e░ ░G░A░R░A░G░E░\n");
+            UserConsole.Print("\n\t\t\t░W░e░l░c░o░m░e░ ░t░o░ ░t░h░e░ ░G░A░R░A░G░E░\n");
             MenuToUser.NextStepMainManu(r_Garage);
         }
     }
