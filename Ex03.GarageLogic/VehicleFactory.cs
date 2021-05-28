@@ -10,11 +10,11 @@ namespace Ex03.GarageLogic
     {
         public enum eVehicleTypes
         {
-            FuelMotorcycle = 1,
-            ElectricMotorcycle = 2,
-            FuelCar = 3,
-            ElectricCar = 4,
-            FuelTruck = 5
+            FuelCar = 1,
+            ElectricCar = 2,
+            FuelMotorcycle = 3,
+            ElectricMotorcycle = 4,
+            Truck = 5
         }
         public static Vehicle InitVehicle(eVehicleTypes i_VehicleType)
         {
@@ -22,19 +22,19 @@ namespace Ex03.GarageLogic
 
             switch (i_VehicleType)
             {
-                case eVehicleTypes.FuelMotorcycle:
-                    newVehicle = new FuelMotorcycle();
-                    break;
-                case eVehicleTypes.ElectricMotorcycle:
-                    newVehicle = new ElectricMotorcycle();
-                    break;
                 case eVehicleTypes.FuelCar:
                     newVehicle = new FuelCar();
                     break;
                 case eVehicleTypes.ElectricCar:
                     newVehicle = new ElectricCar();
                     break;
-                case eVehicleTypes.FuelTruck:
+                case eVehicleTypes.FuelMotorcycle:
+                    newVehicle = new FuelMotorcycle();
+                    break;
+                case eVehicleTypes.ElectricMotorcycle:
+                    newVehicle = new ElectricMotorcycle();
+                    break;
+                case eVehicleTypes.Truck:
                     newVehicle = new Truck();
                     break;
             }

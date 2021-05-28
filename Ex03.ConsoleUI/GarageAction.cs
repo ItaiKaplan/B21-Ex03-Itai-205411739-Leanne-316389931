@@ -25,18 +25,32 @@ namespace Ex03.ConsoleUI
         {
             Vehicle vehicle;
             VehicleFactory.eVehicleTypes vehicleType;
+            while (true)
+            {
+                try
+                {
+                    vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes), UserConsole.ChooseString("vehicle type"));
+                    vehicle = VehicleFactory.InitVehicle(vehicleType);
+                    r_Garage.AddVehicleToGarage(vehicle);
+                    vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
+                    vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                }
+            }
 
-            vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes), UserConsole.ChooseString("vehicle type"));
-            vehicle = VehicleFactory.InitVehicle(vehicleType);
-            vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
-            vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
             vehicle.VehicleInfo = setVehicleInfo();
             setEnergy(vehicle);
             setWheelInfo(vehicle);
             setExtraDetailes(vehicle);
-            r_Garage.AddVehicleToGarage(vehicle);
             UserConsole.Print("\nVehicle was secsseful added!");
             endAction();
+
+
+
         }
 
         private VehicleGarageInfo setVehicleInfo()

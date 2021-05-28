@@ -32,13 +32,13 @@ namespace Ex03.ConsoleUI
         {
             UserConsole outputUser = new UserConsole();
             GarageAction garageAction = new GarageAction(i_Garage);
-            int userChoise; 
+            int userChoise;
 
+            UserConsole.MainManu();
             while (true)
             {
                 try
                 {
-                    UserConsole.Print(UserConsole.k_MainManu);
                     userChoise = InputValidation.GetInt("", 1, 5);
                     break;
                 } catch(Exception ex)
@@ -77,10 +77,11 @@ namespace Ex03.ConsoleUI
 
             while (true)
             {
-                licenseNumber = InputValidation.GetString("Enter License number");
+                
                 try
                 {
-                    UserConsole.Print(UserConsole.k_VehicleManu);
+                    licenseNumber = InputValidation.GetString("Enter License number");
+                    UserConsole.VehicleManu();
                     userChoise = InputValidation.GetInt("", 1, 6);
                     vehicle = i_Garage.GetVehicle(licenseNumber);
                     break;
