@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
@@ -29,11 +25,11 @@ namespace Ex03.ConsoleUI
             {
                 try
                 {
-                    vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes), UserConsole.ChooseString("vehicle type"));
+                    vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes),
+                        UserConsole.ChooseString("vehicle type"));
                     vehicle = VehicleFactory.InitVehicle(vehicleType);
-                    r_Garage.AddVehicleToGarage(vehicle);
                     vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
-                    vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
+                    vehicle.LicenseNumber = InputValidation.GetStringNumber("\nEnter License number: ");
                     break;
                 }
                 catch (Exception ex)
@@ -45,11 +41,10 @@ namespace Ex03.ConsoleUI
             vehicle.VehicleInfo = setVehicleInfo();
             setEnergy(vehicle);
             setWheelInfo(vehicle);
-            setExtraDetailes(vehicle);
-            UserConsole.Print("\nVehicle was secsseful added!");
+            setExtraDeatails(vehicle);
+            r_Garage.AddVehicleToGarage(vehicle);
+            UserConsole.Print("\nVehicle was added successfully!");
             endAction();
-
-
 
         }
 
@@ -61,10 +56,11 @@ namespace Ex03.ConsoleUI
                 try
                 {
                     string ownerName = InputValidation.GetString("\nEnter owner Name: ");
-                    string ownerNumber = InputValidation.GetString("\nEntetr owner phone number: ");
+                    string ownerNumber = InputValidation.GetStringNumber("\nEnter owner phone number: ");
                     vehicleGarageInfo = new VehicleGarageInfo(ownerName, ownerNumber);
                     break;
-                } catch(Exception ex)
+                }
+                catch(Exception ex)
                 {
                     UserConsole.Print(ex.Message);
                 }
@@ -81,7 +77,7 @@ namespace Ex03.ConsoleUI
             } 
             else
             {
-                setELectric(i_Vehicle);
+                setElectric(i_Vehicle);
             }
 
             i_Vehicle.SetEnergyPercentage();
@@ -113,7 +109,7 @@ namespace Ex03.ConsoleUI
             return fuelAmount;
         }
 
-        private float setELectric(Vehicle i_Vehicle)
+        private float setElectric(Vehicle i_Vehicle)
         {
             float energyAmount = 0;
 
@@ -162,7 +158,7 @@ namespace Ex03.ConsoleUI
             }
         }
 
-        private void setExtraDetailes(Vehicle i_Vehicle)
+        private void setExtraDeatails(Vehicle i_Vehicle)
         {
             if(i_Vehicle is Car)
             {
@@ -270,7 +266,7 @@ namespace Ex03.ConsoleUI
         {
             UserConsole.PrintAndRead("\nEnter any key to go back to the main manu");
             UserConsole.Clear();
-            ManuToUser.NextStepMainManu(r_Garage);
+            MenuToUser.NextStepMainManu(r_Garage);
         }
 
     }

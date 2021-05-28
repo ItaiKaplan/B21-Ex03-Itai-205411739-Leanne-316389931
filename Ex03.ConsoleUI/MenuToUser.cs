@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
 {
-    public class ManuToUser
+    public class MenuToUser
     {
         enum eMainManu
         {
@@ -59,13 +55,12 @@ namespace Ex03.ConsoleUI
                     garageAction.ShowVehiclesWithFilter();
                     break;
                 case 4:
-                    ManuToUser.NextStepVehicleManu(i_Garage);
+                    NextStepVehicleManu(i_Garage);
                     break;
                 case 5:
                     System.Environment.Exit(0);
                     break;
             }
-
         }
 
         public static void NextStepVehicleManu(Garage i_Garage)
@@ -76,11 +71,11 @@ namespace Ex03.ConsoleUI
             Vehicle vehicle;
 
             while (true)
-            {
-                
+            {   
                 try
                 {
                     licenseNumber = InputValidation.GetString("Enter License number");
+                    vehicle = i_Garage.GetVehicle(licenseNumber);
                     UserConsole.VehicleManu();
                     userChoise = InputValidation.GetInt("", 1, 6);
                     vehicle = i_Garage.GetVehicle(licenseNumber);

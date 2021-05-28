@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
@@ -15,7 +13,7 @@ namespace Ex03.GarageLogic
             if (r_VehiclesInGarage.ContainsKey(i_Vehicle.LicenseNumber))
             {
                 r_VehiclesInGarage[i_Vehicle.LicenseNumber].VehicleInfo.VehicleCondition = VehicleGarageInfo.eVehicleCondition.InProgress;
-                throw new Exception("This vehicle is already in the garage, status is changed to 'In progress' ");
+                throw new Exception("This vehicle is already in the garage, status changed to 'In progress' ");
             }
             else
             {
@@ -39,7 +37,7 @@ namespace Ex03.GarageLogic
             }
             else
             {
-                throw new Exception("No vehicls in garage");
+                throw new Exception("No vehicles in garage");
             }
 
             return licensNumberList.ToString();
@@ -57,7 +55,7 @@ namespace Ex03.GarageLogic
             }
             else
             {
-                throw new Exception("No vehicls in garage");
+                throw new Exception("No vehicles in garage");
             }
 
             return licensNumberList.ToString();
@@ -118,7 +116,7 @@ namespace Ex03.GarageLogic
         {
             if (!r_VehiclesInGarage.ContainsKey(i_LicenseNumber))
             {
-                throw new ArgumentException(string.Format("No such vehicle {0} in the garage", i_LicenseNumber));
+                throw new ArgumentException(string.Format("No vehicle with license Number {0} in the garage", i_LicenseNumber));
             }
         }
 

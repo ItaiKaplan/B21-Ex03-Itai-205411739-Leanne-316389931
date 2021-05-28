@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
@@ -22,7 +18,7 @@ namespace Ex03.ConsoleUI
         {
             UserConsole.PrintAndRead("Enter any key to go back to the manu");
             UserConsole.Clear();
-            ManuToUser.NextStepVehicleManu(r_Garage);
+            MenuToUser.NextStepVehicleManu(r_Garage);
         }
         
         public void ChangeVehicleStatus()
@@ -85,7 +81,7 @@ namespace Ex03.ConsoleUI
 
         public void VehicleInfo()
         {
-            r_Garage.VehicleInfo(r_Vehicle.LicenseNumber);
+            UserConsole.Print(r_Garage.VehicleInfo(r_Vehicle.LicenseNumber));
             endAction();
         }
 

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
@@ -24,7 +20,7 @@ namespace Ex03.ConsoleUI
             }
             else if (o_InputNumber < 0)
             {
-                throw new Exception("The input is not a positiv number");
+                throw new Exception("The input is not a positive number");
             }
             else
             {
@@ -39,7 +35,22 @@ namespace Ex03.ConsoleUI
             UserConsole.Print(i_Msg);
             stringInput = UserConsole.Read();
             return parseInt(stringInput);      
-            
+        }
+
+        public static string GetStringNumber(string i_Msg)
+        {
+            string stringInput;
+            bool isNumber;
+            int number = 0;
+
+            UserConsole.Print(i_Msg);
+            stringInput = UserConsole.Read();
+            isNumber = int.TryParse(stringInput, out number);
+            if(!isNumber || number < 0)
+            {
+                throw new ArgumentException("The input is not a number");
+            }
+            return stringInput;
         }
 
         public static int GetInt(string i_Msg, int i_Min, int i_Max)
@@ -103,7 +114,7 @@ namespace Ex03.ConsoleUI
             }
             else if (o_InputNumber < 0)
             {
-                throw new Exception("The input is not a positiv number");
+                throw new Exception("The input is not a positive number");
             }
             else
             {
@@ -131,9 +142,5 @@ namespace Ex03.ConsoleUI
 
             return userChoise;
         }
-
-
-
-
     }
 }

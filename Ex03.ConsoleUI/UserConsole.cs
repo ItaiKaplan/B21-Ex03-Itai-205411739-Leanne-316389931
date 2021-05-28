@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex03.ConsoleUI
 {
@@ -57,25 +54,26 @@ namespace Ex03.ConsoleUI
         public static void MainManu()
         {
             string msg = string.Format(@"
-Please enter the number of option you would like to do:
+Please enter the number of the operation you would like to preform:
 1. Add a new vehicle to the garage
 2. Show All Vehicles in the garage
 3. Show Vehicles in garage with filter 
-4. Specipic vehicle actions
+4. Specific vehicle actions
 5. Exit");
             Print(msg);
         }
 
         public static void VehicleManu()
         {
-            string msg = string.Format(
-@"Please enter the number of option you would like to do:
-1. Change vhicle status in garage
-2. Fill air in wheels to maximum 
-3. Fill up fuel in a fuel car
-4. Fill up energy in an electric car
+            string msg = string.Format(@"
+Please enter the number of the operation you would like to preform:
+1. Change vehicle status 
+2. Fill air in wheels  
+3. Fill up fuel (Fuel car only)
+4. Fill up energy (Electric car only)
 5. Vehicle info
 6. Back to main manu");
+            Print(msg);
         }
     }
 }

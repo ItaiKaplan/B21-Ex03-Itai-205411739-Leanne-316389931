@@ -36,7 +36,7 @@ namespace Ex03.GarageLogic
                 RefillEnergySource(i_AmountOfFuelToFill);
             } else
             {
-                throw new FormatException("Fuel type does not match!");
+                throw new ArgumentException("Fuel type does not match!");
             }
         }
 
