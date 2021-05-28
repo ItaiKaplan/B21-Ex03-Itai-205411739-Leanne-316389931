@@ -37,7 +37,7 @@ namespace Ex03.GarageLogic
                 return m_CurrentAirPressure;
             }
 
-            set
+            private set
             {
                 m_CurrentAirPressure = value;
             }
@@ -56,6 +56,10 @@ namespace Ex03.GarageLogic
             if(m_CurrentAirPressure + i_AirToAdd <= r_MaxAirPressure)
             {
                 m_CurrentAirPressure += i_AirToAdd;
+            }
+            else
+            {
+                throw new ValueOutOfRangeException(0, r_MaxAirPressure);
             }
         }
 

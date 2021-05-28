@@ -18,22 +18,13 @@ namespace Ex03.GarageLogic
 
         public float MaxCapacity
         {
-            get
-            {
-                return r_MaxCapacity;
-            }
+            get { return r_MaxCapacity; }
         }
         public float CurrentCapacity
         {
-            get
-            {
-                return m_CurrentCapacity;
-            }
+            get { return m_CurrentCapacity; }
 
-            set
-            {
-                m_CurrentCapacity = value;
-            }
+            set { m_CurrentCapacity = value; }
         }
 
         public void RefillEnergySource(float i_EnergyAmountToFill)

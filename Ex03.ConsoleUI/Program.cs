@@ -10,12 +10,8 @@ namespace Ex03.ConsoleUI
     {
         public static void Main()
         {
-            int input = 0;
-            InputOutputIser.PrintMsg(InputOutputIser.k_WelcomeMsg);
-            InputOutputIser.PrintMsg(InputOutputIser.k_MainManu);
-            input = ConsoleInput.MainManuInput();
-            GarageActions.Go(input);
-            
+            GarageApp garageApp = new GarageApp();
+            garageApp.StartGarageApp();
 
         }
     }

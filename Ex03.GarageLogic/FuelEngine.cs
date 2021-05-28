@@ -16,32 +16,27 @@ namespace Ex03.GarageLogic
             Octan98,
         }
 
-        eFuelType m_FuelType;
+        readonly eFuelType r_FuelType;
 
         public FuelEngine(eFuelType i_FuelType, float i_MaxCapacity)
             : base(i_MaxCapacity)
         {
-            m_FuelType = i_FuelType;
+            r_FuelType = i_FuelType;
         }
 
         public eFuelType FuelType
         {
-            get
-            {
-                return m_FuelType;
-            }
-
-            set
-            {
-                m_FuelType = value;
-            }
+            get { return r_FuelType; }
         }
 
         public void FillFuel(eFuelType i_FuelType, float i_AmountOfFuelToFill)
         {
-            if ((int)i_FuelType == (int)m_FuelType)
+            if(i_FuelType.Equals(r_FuelType))
             {
                 RefillEnergySource(i_AmountOfFuelToFill);
+            } else
+            {
+                throw new FormatException("Fuel type does not match!");
             }
         }
 

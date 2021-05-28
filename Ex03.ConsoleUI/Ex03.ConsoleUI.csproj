@@ -40,10 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GarageAction.cs" />
+    <Compile Include="GarageApp.cs" />
     <Compile Include="InputValidation.cs" />
     <Compile Include="ManuToUser.cs" />
-    <Compile Include="MessegesToUser.cs" />
-    <Compile Include="OutputUser.cs" />
+    <Compile Include="UserConsole.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="VehicleAction.cs" />
   </ItemGroup>

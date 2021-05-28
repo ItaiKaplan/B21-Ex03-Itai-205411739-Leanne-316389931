@@ -7,37 +7,59 @@ using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
 {
-    class GarageAction
+    internal class GarageAction
     {
-        Garage m_Garage;
+        readonly Garage r_Garage;
+
+        internal GarageAction(Garage i_Garage)
+        {
+            r_Garage = i_Garage;
+        }
+
+        internal Garage Garage
+        {
+            get { return r_Garage; }
+        }
 
         public void AddVehicleToGarage()
         {
             Vehicle vehicle;
-            Garage.eVehicleTypes vehicleType;
-            float remainingEnergy;
+            VehicleFactory.eVehicleTypes vehicleType;
 
-            vehicleType = InputValidation.GetVehicleType();
+            vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes), UserConsole.ChooseString("vehicle type"));
             vehicle = VehicleFactory.InitVehicle(vehicleType);
-            vehicle.ModelName = InputValidation.GetString();
-            vehicle.LicenseNumber = InputValidation.GetString();
+            vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
+            vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
             vehicle.VehicleInfo = setVehicleInfo();
-
             setEnergy(vehicle);
             setWheelInfo(vehicle);
             setExtraDetailes(vehicle);
-
-
+            r_Garage.AddVehicleToGarage(vehicle);
+            UserConsole.Print("\nVehicle was secsseful added!");
+            endAction();
         }
 
         private VehicleGarageInfo setVehicleInfo()
         {
-            string ownerName = InputValidation.GetString();
-            string ownerNumber = InputValidation.GetString();
-            return new VehicleGarageInfo(ownerName, ownerNumber);
+            VehicleGarageInfo vehicleGarageInfo;
+
+            while (true) {
+                try
+                {
+                    string ownerName = InputValidation.GetString("\nEnter owner Name: ");
+                    string ownerNumber = InputValidation.GetString("\nEntetr owner phone number: ");
+                    vehicleGarageInfo = new VehicleGarageInfo(ownerName, ownerNumber);
+                    break;
+                } catch(Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                }
+            }
+
+            return vehicleGarageInfo;
         }
 
-        private setEnergy(Vehicle i_Vehicle)
+        private void setEnergy(Vehicle i_Vehicle)
         {
             if(i_Vehicle.Engine is FuelEngine)
             {
@@ -45,28 +67,58 @@ namespace Ex03.ConsoleUI
             } 
             else
             {
-               
+                setELectric(i_Vehicle);
             }
+
+            i_Vehicle.SetEnergyPercentage();
         }
 
-        private void setFuel(Vehicle i_Vehicle)
+        private float setFuel(Vehicle i_Vehicle)
         {
             FuelEngine.eFuelType fuelType;
-            float fuelAmount;
-            FuelEngine fuelEngine = i_Vehicle.Engine as FuelEngine;
+            float fuelAmount = 0;
 
-            try
+            while (true)
             {
-                fuelType = (FuelEngine.eFuelType)InputValidation.GetIntFromEnum();
-                fuelAmount = InputValidation.GetFloat();
-                fuelEngine.FillFuel(fuelType, fuelAmount);
-            } catch(Exception ex)
-            {
-                OutputUser.Print(ex.Message);
-                setFuel(i_Vehicle);
+                try
+                {
+                    FuelEngine fuelEngine = i_Vehicle.Engine as FuelEngine;
+                    UserConsole.Print("\nLets fill up Fuel!");
+                    fuelType = (FuelEngine.eFuelType)InputValidation.EnumChoiseToInt(typeof(FuelEngine.eFuelType), UserConsole.ChooseString("fuel type"));
+                    fuelAmount = InputValidation.GetFloat("\nEnter amount of fuel you want to fill: ");
+                    fuelEngine.FillFuel(fuelType, fuelAmount);
+                    break;
+                    
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                }
             }
-            
 
+            return fuelAmount;
+        }
+
+        private float setELectric(Vehicle i_Vehicle)
+        {
+            float energyAmount = 0;
+
+            while (true)
+            {
+                try
+                {
+                    ElectricEngine ElectricEngine = i_Vehicle.Engine as ElectricEngine;
+                    energyAmount = InputValidation.GetFloat("\nEnter amount of hours you want to fill: ");
+                    ElectricEngine.RefillEnergySource(energyAmount);
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                }
+            }
+
+            return energyAmount;
         }
 
         private void setWheelInfo(Vehicle i_Vehicle)
@@ -74,12 +126,25 @@ namespace Ex03.ConsoleUI
             float airInput;
             string wheelManufacture;
 
-            wheelManufacture = InputValidation.GetString();
-            airInput = InputValidation.GetFloat();
-            foreach(Wheel wheel in i_Vehicle.Wheels)
+            while (true)
             {
-                wheel.InflateWheel(airInput);
-                wheel.ManufacturerName = wheelManufacture;
+                try
+                {
+                    wheelManufacture = InputValidation.GetString("\nEnter wheel manufacture: ");
+                    airInput = InputValidation.GetFloat("\nEnter how much air you want to add to the wheels: ");
+                    foreach (Wheel wheel in i_Vehicle.Wheels)
+                    {
+                        wheel.InflateWheel(airInput);
+                        wheel.ManufacturerName = wheelManufacture;
+                    }
+
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                    break;
+                }
             }
         }
 
@@ -100,21 +165,91 @@ namespace Ex03.ConsoleUI
         }
 
         private void setCarInfo(Car i_Car)
-        { 
-            i_Car.Color = (Car.eColor)InputValidation.GetIntFromEnum();
-            i_Car.NumberOfDoors = (Car.eNumberOfDoors)InputValidation.GetIntFromEnum();
+        {
+            while (true)
+            {
+                try
+                {
+                    i_Car.Color = (Car.eColor)InputValidation.EnumChoiseToInt(typeof(Car.eColor), UserConsole.ChooseString("car color"));
+                    i_Car.NumberOfDoors = (Car.eNumberOfDoors)InputValidation.EnumChoiseToInt(typeof(Car.eNumberOfDoors), UserConsole.ChooseString("number of doors for car"));
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                }
+            }
         }
+
 
         private void setMotorcycleInfo(Motorcycle i_Motorcycle)
         {
-            i_Motorcycle.ModelName = InputValidation.GetString();
-            i_Motorcycle.EngineVolume = InputValidation.GetFloat();
+            while (true)
+            {
+                try
+                {
+                    i_Motorcycle.LicenseType = (Motorcycle.eLicenseType)InputValidation.EnumChoiseToInt(typeof(Motorcycle.eLicenseType), UserConsole.ChooseString("license type"));
+                    i_Motorcycle.EngineVolume = InputValidation.GetPositiveInt("\nEnter Engine volume: ");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                }
+            }
         }
 
         private void setTruckInfo(Truck i_Truck)
         {
-            i_Truck.ContainsDangerousMaterials = InputValidation.GetBool;
-            i_Truck.MaxCarryWeight = InputValidation.GetFloat();
+            while (true)
+            {
+                try
+                {
+                    i_Truck.ContainsDangerousMaterials = InputValidation.GetBool("\nDoes truck contains dangerous materials? ");
+                    i_Truck.MaxCarryWeight = InputValidation.GetFloat("\nEnter max carry weight: ");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                }
+            }
+        }
+
+        public void ShowAllVehicles()
+        {
+            UserConsole.Print("All vehicals in the garage: \n");
+            UserConsole.Print(r_Garage.VehicleInGarageToString());
+            endAction();
+        }
+
+        public void ShowVehiclesWithFilter()
+        {
+            VehicleGarageInfo.eVehicleCondition vehicleCondition;
+
+            while (true)
+            {
+                try
+                {
+                    vehicleCondition = (VehicleGarageInfo.eVehicleCondition)InputValidation.EnumChoiseToInt(typeof(VehicleGarageInfo.eVehicleCondition), UserConsole.ChooseString("vehicle condition"));
+                    UserConsole.Print(string.Format("All vehicels in the garage that are {0}", vehicleCondition.ToString()));
+                    UserConsole.Print(r_Garage.VehicleInGarageToString(vehicleCondition));
+                    break;
+                } catch(Exception ex)
+                {
+                    UserConsole.Print(ex.Message);
+                    break;
+                }
+            }
+
+            endAction();
+        }
+
+        private void endAction()
+        {
+            UserConsole.PrintAndRead("\nEnter any key to go back to the main manu");
+            UserConsole.Clear();
+            ManuToUser.NextStepMainManu(r_Garage);
         }
 
     }

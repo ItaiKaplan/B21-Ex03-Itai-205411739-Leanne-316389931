@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class ElectricMotorcycle : Motorcycle
+    public class ElectricMotorcycle : Motorcycle
     {
         const float k_MaxBatteryLife = (float)1.8;
 

@@ -71,29 +71,6 @@ namespace Ex03.GarageLogic
             m_RemainingEnergyPrecentage = (m_Engine.CurrentCapacity / m_Engine.MaxCapacity) * 100;
         }
 
-        public override bool Equals(object obj)
-        {
-            bool equals = false;
-
-            Vehicle toCompareTo = obj as Vehicle;
-            if(toCompareTo != null)
-            {
-                equals = this.LicenseNumber.Equals(toCompareTo.LicenseNumber);
-            }
-
-            return equals;
-        }
-
-        public static bool operator ==(Vehicle i_FirstVehicle, Vehicle i_SecondVehicle)
-        {
-            return (i_FirstVehicle.Equals(i_SecondVehicle));
-        }
-
-        public static bool operator !=(Vehicle i_FirstVehicle, Vehicle i_SecondVehicle)
-        {
-            return !(i_FirstVehicle.Equals(i_SecondVehicle));
-        }
-
         public override string ToString()
         {
             string msg;

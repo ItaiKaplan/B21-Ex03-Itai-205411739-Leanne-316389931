@@ -23,7 +23,7 @@ namespace Ex03.GarageLogic
             }
         }
 
-        public string VehicleInGarageToString(int i_VehicleCondition)
+        public string VehicleInGarageToString(VehicleGarageInfo.eVehicleCondition i_VehicleCondition)
         {
             StringBuilder licensNumberList = new StringBuilder("");
 
@@ -31,7 +31,7 @@ namespace Ex03.GarageLogic
             {
                 foreach (Vehicle vehicle in r_VehiclesInGarage.Values)
                 {
-                    if ((int)vehicle.VehicleInfo.VehicleCondition == i_VehicleCondition)
+                    if (vehicle.VehicleInfo.VehicleCondition == i_VehicleCondition)
                     {
                         licensNumberList.Append(vehicle.LicenseNumber + "\n");
                     }
@@ -137,6 +137,12 @@ namespace Ex03.GarageLogic
             {
                 throw new ArgumentException(string.Format("vehicle {0} is not on fuel!", i_LicenseNumber));
             }
+        }
+
+        public Vehicle GetVehicle(string i_LicenseNumber)
+        {
+            checkIfVehicleInGarage(i_LicenseNumber);
+            return r_VehiclesInGarage[i_LicenseNumber];
         }
     }
 }
