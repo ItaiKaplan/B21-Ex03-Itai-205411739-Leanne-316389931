@@ -232,9 +232,16 @@ namespace Ex03.ConsoleUI
 
         public void ShowAllVehicles()
         {
-            UserConsole.Print("All vehicals in the garage: \n");
-            UserConsole.Print(r_Garage.VehicleInGarageToString());
-            endAction();
+            try
+            {
+                UserConsole.Print("All vehicals in the garage: \n");
+                UserConsole.Print(r_Garage.VehicleInGarageToString());
+                endAction();
+            } catch(Exception ex)
+            {
+                UserConsole.Print(ex.Message);
+                endAction();
+            }
         }
 
         public void ShowVehiclesWithFilter()
