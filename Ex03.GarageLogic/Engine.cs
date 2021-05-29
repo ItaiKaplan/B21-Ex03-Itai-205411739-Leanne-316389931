@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic
 {
     public class Engine
     {
-        readonly protected float r_MaxCapacity = 0;
+        readonly float r_MaxCapacity = 0;
         float m_CurrentCapacity = 0;
 
         public Engine(float i_MaxCapacity)
@@ -20,10 +20,10 @@ namespace Ex03.GarageLogic
         {
             get { return r_MaxCapacity; }
         }
+
         public float CurrentCapacity
         {
             get { return m_CurrentCapacity; }
-
             set { m_CurrentCapacity = value; }
         }
 
@@ -32,9 +32,10 @@ namespace Ex03.GarageLogic
             if(m_CurrentCapacity + i_EnergyAmountToFill <= r_MaxCapacity)
             {
                 m_CurrentCapacity = m_CurrentCapacity + i_EnergyAmountToFill;
-            } else
+            } 
+            else
             {
-                throw new ValueOutOfRangeException(0, r_MaxCapacity - m_CurrentCapacity);
+                throw new ValueOutOfRangeException(0, (r_MaxCapacity - m_CurrentCapacity) * 60);
             }
         }
 

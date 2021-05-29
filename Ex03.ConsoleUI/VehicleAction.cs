@@ -53,6 +53,7 @@ namespace Ex03.ConsoleUI
                     UserConsole.ExceptionOutput(ex);
                 }
             }
+
             UserConsole.Print("Filling air finished!");
             endAction();
         }
@@ -87,7 +88,7 @@ namespace Ex03.ConsoleUI
             {
                 try
                 {
-                    float amountOfEnergy = InputValidation.GetFloat("Enter the amount of energy to add");
+                    float amountOfEnergy = InputValidation.GetFloat("Enter the amount of minutes of energy to add");
                     r_Garage.FillEnergeVehicle(r_Vehicle.LicenseNumber, amountOfEnergy);
                     break;
                 } catch (Exception ex)

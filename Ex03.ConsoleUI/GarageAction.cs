@@ -120,7 +120,7 @@ namespace Ex03.ConsoleUI
                 {
                     ElectricEngine ElectricEngine = i_Vehicle.Engine as ElectricEngine;
                     UserConsole.SleepAndClear();
-                    energyAmount = InputValidation.GetFloat("\nEnter amount of hours you want to fill: ");
+                    energyAmount = InputValidation.GetFloat("\nEnter amount of minutes of energy you want to fill: ");
                     ElectricEngine.RefillEnergySource(energyAmount);
                     break;
                 }

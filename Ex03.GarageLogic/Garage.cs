@@ -41,10 +41,12 @@ namespace Ex03.GarageLogic
             {
                 throw new Exception("No vehicles in garage");
             }
+
             if(!conditionExistsInGarage)
             {
                 licensNumberList.Append("No vehicle with the condition specified in the garage\n");
             }
+
             return licensNumberList.ToString();
         }
 
@@ -101,17 +103,18 @@ namespace Ex03.GarageLogic
             } 
         }
 
-        public void FillEnergeVehicle(string i_LicenseNumber, float i_AmountToFill)
+        public void FillEnergeVehicle(string i_LicenseNumber, float i_AmountToFillInMinutes)
         {
             checkIfVehicleInGarage(i_LicenseNumber);
             checkIfElectriclEngine(i_LicenseNumber);
-            r_VehiclesInGarage[i_LicenseNumber].Engine.RefillEnergySource(i_AmountToFill);
+            r_VehiclesInGarage[i_LicenseNumber].Engine.RefillEnergySource(i_AmountToFillInMinutes / 60);
             r_VehiclesInGarage[i_LicenseNumber].SetEnergyPercentage();
         }
 
         public string VehicleInfo(string i_LicenseNumber)
         {
             checkIfVehicleInGarage(i_LicenseNumber);
+
             return r_VehiclesInGarage[i_LicenseNumber].ToString();
         }
 
@@ -120,15 +123,6 @@ namespace Ex03.GarageLogic
             if (!r_VehiclesInGarage.ContainsKey(i_LicenseNumber))
             {
                 throw new ArgumentException(string.Format("No vehicle with license Number {0} in the garage", i_LicenseNumber));
-            }
-        }
-
-        //NEEDED???
-        private void checkIfFuelEngine(string i_LicenseNumber)
-        {
-            if(!(r_VehiclesInGarage[i_LicenseNumber].Engine is FuelEngine))
-            {
-                throw new ArgumentException(string.Format("vehicle {0} is not on fuel!", i_LicenseNumber));
             }
         }
 
@@ -143,6 +137,7 @@ namespace Ex03.GarageLogic
         public Vehicle GetVehicle(string i_LicenseNumber)
         {
             checkIfVehicleInGarage(i_LicenseNumber);
+
             return r_VehiclesInGarage[i_LicenseNumber];
         }
     }

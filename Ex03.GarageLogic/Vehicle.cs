@@ -8,7 +8,7 @@ namespace Ex03.GarageLogic
         string m_LicenseNumber = string.Empty;
         float m_RemainingEnergyPrecentage = 0;
         protected Engine m_Engine = null;
-        readonly List<Wheel> m_Wheels = new List<Wheel>();
+        readonly List<Wheel> r_Wheels = new List<Wheel>();
         VehicleGarageInfo m_VehicleGarageInfo = null; 
 
         public VehicleGarageInfo VehicleInfo
@@ -20,41 +20,29 @@ namespace Ex03.GarageLogic
         public string ModelName
         {
             get { return m_ModelName; }
-
             set { m_ModelName = value; }
         }
 
         public string LicenseNumber
         {
             get { return m_LicenseNumber; }
-
             set { m_LicenseNumber = value; }
         }
 
         public float RemainingEnergyPrecentage
         {
-            get
-            {
-                return m_RemainingEnergyPrecentage;
-            }
+            get { return m_RemainingEnergyPrecentage; }
         }
 
         public Engine Engine
         {
-            get
-            {
-                return m_Engine;
-            }
-
-            set
-            {
-                m_Engine = value;
-            }
+            get { return m_Engine; }
+            set { m_Engine = value; }
         }
 
         public List<Wheel> Wheels
         {
-            get { return m_Wheels; }
+            get { return r_Wheels; }
         }
 
         protected void AddWheel(Wheel i_WheelToAdd)
@@ -80,7 +68,7 @@ Wheels info:
         {4}    
 Stage In Garage: {5}
 Owner Name: {6}
-Owner Phone Number: {7}", m_ModelName, m_LicenseNumber, m_RemainingEnergyPrecentage, m_Wheels.Count,m_Wheels[0], m_VehicleGarageInfo.VehicleCondition, m_VehicleGarageInfo.OwnerName, m_VehicleGarageInfo.OwnerPhoneNumber);
+Owner Phone Number: {7}", m_ModelName, m_LicenseNumber, m_RemainingEnergyPrecentage, r_Wheels.Count,r_Wheels[0], m_VehicleGarageInfo.VehicleCondition, m_VehicleGarageInfo.OwnerName, m_VehicleGarageInfo.OwnerPhoneNumber);
             
             return msg;
         }

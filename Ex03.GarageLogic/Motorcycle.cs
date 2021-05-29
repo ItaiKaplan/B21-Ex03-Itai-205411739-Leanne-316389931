@@ -10,10 +10,10 @@ namespace Ex03.GarageLogic
     {
         public enum eLicenseType
         {
-            A,
-            B1,
-            AA,
-            BB
+            A = 1,
+            B1 = 2,
+            AA = 3,
+            BB = 4
         }
 
         const int k_NumberOfWheels = 2;
@@ -30,32 +30,16 @@ namespace Ex03.GarageLogic
             }
         }
 
-
-
         public eLicenseType LicenseType
         {
-            get
-            {
-                return m_LicenseType;
-            }
-
-            set
-            {
-                m_LicenseType = value;
-            }
+            get { return m_LicenseType; }
+            set { m_LicenseType = value; }
         }
 
         public int EngineVolume
         {
-            get
-            {
-                return m_EngineVolume;
-            }
-
-            set
-            {
-                m_EngineVolume = value; 
-            }
+            get { return m_EngineVolume; }
+            set { m_EngineVolume = value; }
         }
 
         public override string ToString()

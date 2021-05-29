@@ -32,23 +32,12 @@ namespace Ex03.GarageLogic
 
         public float CurrentAirPressure
         {
-            get
-            {
-                return m_CurrentAirPressure;
-            }
-
-            private set
-            {
-                m_CurrentAirPressure = value;
-            }
+            get { return m_CurrentAirPressure; }
         }
 
         public float MaxAirPressure
         {
-            get
-            {
-                return r_MaxAirPressure;
-            }
+            get { return r_MaxAirPressure; }
         }
 
         public void InflateWheel(float i_AirToAdd)
