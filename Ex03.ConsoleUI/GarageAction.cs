@@ -28,8 +28,8 @@ namespace Ex03.ConsoleUI
                     vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes),
                         UserConsole.ChooseString("vehicle type"));
                     vehicle = VehicleFactory.InitVehicle(vehicleType);
-                    vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
                     vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
+                    vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
                     r_Garage.AddVehicleToGarage(vehicle);
                     break;
                 }
@@ -251,7 +251,8 @@ namespace Ex03.ConsoleUI
                 try
                 {
                     vehicleCondition = (VehicleGarageInfo.eVehicleCondition)InputValidation.EnumChoiseToInt(typeof(VehicleGarageInfo.eVehicleCondition), UserConsole.ChooseString("vehicle condition"));
-                    UserConsole.Print(string.Format("All vehicels in the garage that are {0}", vehicleCondition.ToString()));
+                    UserConsole.Print(string.Format("All vehicles in the garage that are {0}:", vehicleCondition.ToString()));
+
                     UserConsole.Print(r_Garage.VehicleInGarageToString(vehicleCondition));
                     break;
                 } catch(Exception ex)
@@ -260,7 +261,7 @@ namespace Ex03.ConsoleUI
                 }
                 finally
                 {
-                    UserConsole.PrintAndRead("Press any key to go back to vehicle manu");
+                    UserConsole.PrintAndRead("Press any key to go back to vehicle menu");
                     endAction();
                 }
             }

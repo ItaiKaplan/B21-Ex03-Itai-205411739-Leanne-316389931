@@ -24,6 +24,7 @@ namespace Ex03.GarageLogic
         public string VehicleInGarageToString(VehicleGarageInfo.eVehicleCondition i_VehicleCondition)
         {
             StringBuilder licensNumberList = new StringBuilder("");
+            bool conditionExistsInGarage = false;
 
             if (r_VehiclesInGarage.Count != 0)
             {
@@ -32,6 +33,7 @@ namespace Ex03.GarageLogic
                     if (vehicle.VehicleInfo.VehicleCondition == i_VehicleCondition)
                     {
                         licensNumberList.Append(vehicle.LicenseNumber + "\n");
+                        conditionExistsInGarage = true;
                     }
                 }
             }
@@ -39,7 +41,10 @@ namespace Ex03.GarageLogic
             {
                 throw new Exception("No vehicles in garage");
             }
-
+            if(!conditionExistsInGarage)
+            {
+                licensNumberList.Append("No vehicle with the condition specified in the garage\n");
+            }
             return licensNumberList.ToString();
         }
 
