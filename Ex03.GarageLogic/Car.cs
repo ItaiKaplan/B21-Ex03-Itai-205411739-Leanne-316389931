@@ -64,7 +64,7 @@
 
             msg = string.Format(
 @"{0},
-Number of doors: {1},
+Number of doors: {1}
 Color: {2}", base.ToString(), m_NumberOfDoors, m_Color);
 
             return msg;

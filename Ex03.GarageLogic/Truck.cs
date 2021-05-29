@@ -43,8 +43,8 @@ namespace Ex03.GarageLogic
 
             msg = string.Format(
 @"This Vehicle is: Fuel Truck
-{0},
-Fuel Type: {1},
+{0}
+Fuel Type: {1}
 Contains Dangerous Materials: {2}
 MaxCarryWeight: {3}", base.ToString(), k_FuelType, m_ContainsDangerousMaterials, m_MaxCarryWeight);
 

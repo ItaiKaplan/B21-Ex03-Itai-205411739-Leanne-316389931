@@ -23,7 +23,7 @@ namespace Ex03.GarageLogic
 
             msg = string.Format(
 @"This Vehicle is: Fuel Motorcycle
-{0},
+{0}
 Fuel Type: {1}", base.ToString(), k_FuelType);
 
             return msg;

@@ -94,7 +94,8 @@ namespace Ex03.ConsoleUI
             if(!inputString.Equals("1") && !inputString.Equals("0"))
             {
                 throw new Exception("You didnt enter 0 or 1");
-            } else if(inputString.Equals("0"))
+            } 
+            else if(inputString.Equals("0"))
             {
                 result = false;
             }

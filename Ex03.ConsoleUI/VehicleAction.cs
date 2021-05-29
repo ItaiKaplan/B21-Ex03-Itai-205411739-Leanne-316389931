@@ -17,18 +17,23 @@ namespace Ex03.ConsoleUI
         private void endAction()
         {
             UserConsole.SleepAndClear();
-            MenuToUser.NextStepVehicleManu(r_Garage);
+            MenuToUser.NextStepVehicleManu(r_Garage, r_Vehicle);
         }
         
         public void ChangeVehicleStatus()
         {
-            try
+            while (true)
             {
-                VehicleGarageInfo.eVehicleCondition vehicleStatus = (VehicleGarageInfo.eVehicleCondition)InputValidation.EnumChoiseToInt(typeof(VehicleGarageInfo.eVehicleCondition), UserConsole.ChooseString("vehicle condition"));
-                r_Garage.ChangeVehicleCondition(r_Vehicle.LicenseNumber, vehicleStatus);
-            } catch (Exception ex)
-            {
-                UserConsole.Print(ex.Message);
+                try
+                {
+                    VehicleGarageInfo.eVehicleCondition vehicleStatus = (VehicleGarageInfo.eVehicleCondition)InputValidation.EnumChoiseToInt(typeof(VehicleGarageInfo.eVehicleCondition), UserConsole.ChooseString("vehicle condition"));
+                    r_Garage.ChangeVehicleCondition(r_Vehicle.LicenseNumber, vehicleStatus);
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.ExceptionOutput(ex);
+                }
             }
 
             endAction();
@@ -36,7 +41,19 @@ namespace Ex03.ConsoleUI
 
         public void FillAirWheels()
         {
-            r_Garage.FillAirToMax(r_Vehicle.LicenseNumber);
+            while (true)
+            {
+                try
+                {
+                    r_Garage.FillAirToMax(r_Vehicle.LicenseNumber);
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    UserConsole.ExceptionOutput(ex);
+                }
+            }
+
             endAction();
         }
 
@@ -53,7 +70,11 @@ namespace Ex03.ConsoleUI
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
+                    if(ex.Message.Contains("not on fuel!"))
+                    {
+                        break;
+                    }
                 }
             }
 
@@ -71,7 +92,12 @@ namespace Ex03.ConsoleUI
                     break;
                 } catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
+                    if(ex.Message.Contains("on fuel"))
+                    {
+                        break;
+                    }
+
                 }
             }
 
@@ -81,6 +107,7 @@ namespace Ex03.ConsoleUI
         public void VehicleInfo()
         {
             UserConsole.Print(r_Garage.VehicleInfo(r_Vehicle.LicenseNumber));
+            UserConsole.PrintAndRead("\nPress any key to go back to vehicle manu");
             endAction();
         }
 

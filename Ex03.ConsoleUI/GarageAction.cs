@@ -40,6 +40,7 @@ namespace Ex03.ConsoleUI
             }
             vehicle.VehicleInfo = setVehicleInfo();
             setEnergy(vehicle);
+            UserConsole.SleepAndClear();
             setWheelInfo(vehicle);
             UserConsole.Print("\n");
             setExtraDeatails(vehicle);
@@ -118,6 +119,7 @@ namespace Ex03.ConsoleUI
                 try
                 {
                     ElectricEngine ElectricEngine = i_Vehicle.Engine as ElectricEngine;
+                    UserConsole.SleepAndClear();
                     energyAmount = InputValidation.GetFloat("\nEnter amount of hours you want to fill: ");
                     ElectricEngine.RefillEnergySource(energyAmount);
                     break;
@@ -230,10 +232,12 @@ namespace Ex03.ConsoleUI
             {
                 UserConsole.Print("All vehicals in the garage: \n");
                 UserConsole.Print(r_Garage.VehicleInGarageToString());
-                endAction();
             } catch(Exception ex)
             {
                 UserConsole.ExceptionOutput(ex);
+            } finally
+            {
+                UserConsole.PrintAndRead("Press any key to go back to vehicle manu");
                 endAction();
             }
         }
@@ -254,7 +258,13 @@ namespace Ex03.ConsoleUI
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
+                finally
+                {
+                    UserConsole.PrintAndRead("Press any key to go back to vehicle manu");
+                    endAction();
+                }
             }
+
 
             endAction();
         }

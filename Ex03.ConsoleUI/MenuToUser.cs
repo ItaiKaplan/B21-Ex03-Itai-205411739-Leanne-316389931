@@ -56,7 +56,7 @@ namespace Ex03.ConsoleUI
                     garageAction.ShowVehiclesWithFilter();
                     break;
                 case 4:
-                    NextStepVehicleManu(i_Garage);
+                    NextStepVehicleManu(i_Garage, null);
                     break;
                 case 5:
                     System.Environment.Exit(0);
@@ -64,31 +64,70 @@ namespace Ex03.ConsoleUI
             }
         }
 
-        public static void NextStepVehicleManu(Garage i_Garage)
+        public static void NextStepVehicleManu(Garage i_Garage, Vehicle i_Vehicle)
         {
             UserConsole outputUser = new UserConsole();
             int userChoise;
             string licenseNumber;
             Vehicle vehicle;
+            VehicleAction vehicleAction = null;
+            bool inputAnswer = true;
+
+            if (i_Vehicle != null)
+            {
+                while (true)
+                {
+                    try
+                    {
+                        inputAnswer = InputValidation.GetBool("Do you want to switch vehicle?");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        UserConsole.ExceptionOutput(ex);
+                    }
+                }
+
+                if(!inputAnswer)
+                {
+                    vehicleAction = new VehicleAction(i_Vehicle, i_Garage);
+
+                }
+            }
+
+            if(inputAnswer)
+            {
+                while (true)
+                {
+                    try
+                    {
+                        licenseNumber = InputValidation.GetString("Enter License number");
+                        vehicle = i_Garage.GetVehicle(licenseNumber);
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        UserConsole.ExceptionOutput(ex);
+                    }
+                }
+
+                vehicleAction = new VehicleAction(vehicle, i_Garage);
+            }
 
             while (true)
-            {   
+            {
                 try
                 {
-                    licenseNumber = InputValidation.GetString("Enter License number");
-                    vehicle = i_Garage.GetVehicle(licenseNumber);
                     UserConsole.VehicleManu();
                     userChoise = InputValidation.GetInt("", 1, 6);
-                    vehicle = i_Garage.GetVehicle(licenseNumber);
                     break;
                 }
                 catch (Exception ex)
                 {
-                    UserConsole.Print(ex.Message);
+                    UserConsole.ExceptionOutput(ex);
                 }
             }
 
-            VehicleAction vehicleAction = new VehicleAction(vehicle, i_Garage);
             UserConsole.SleepAndClear();
             switch (userChoise)
             {

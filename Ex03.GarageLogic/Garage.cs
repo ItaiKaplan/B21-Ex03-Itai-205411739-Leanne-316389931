@@ -110,8 +110,6 @@ namespace Ex03.GarageLogic
             return r_VehiclesInGarage[i_LicenseNumber].ToString();
         }
 
-
-
         private void checkIfVehicleInGarage(string i_LicenseNumber)
         {
             if (!r_VehiclesInGarage.ContainsKey(i_LicenseNumber))
@@ -133,7 +131,7 @@ namespace Ex03.GarageLogic
         {
             if (!(r_VehiclesInGarage[i_LicenseNumber].Engine is ElectricEngine))
             {
-                throw new ArgumentException(string.Format("vehicle {0} is not on fuel!", i_LicenseNumber));
+                throw new ArgumentException(string.Format("vehicle {0} is on fuel and not on energy!", i_LicenseNumber));
             }
         }
 

@@ -72,12 +72,12 @@ namespace Ex03.GarageLogic
             string msg;
 
             msg = string.Format(
-@"Model Name: {0},
-LicenseNumber: {1},
+@"Model Name: {0}
+LicenseNumber: {1}
 RemainingEnergyPrecentage: {2}%  
 Wheels info:
         Numer of wheels : {3}
-        Wheel condition : {4}    
+        {4}    
 Stage In Garage: {5}
 Owner Name: {6}
 Owner Phone Number: {7}", m_ModelName, m_LicenseNumber, m_RemainingEnergyPrecentage, m_Wheels.Count,m_Wheels[0], m_VehicleGarageInfo.VehicleCondition, m_VehicleGarageInfo.OwnerName, m_VehicleGarageInfo.OwnerPhoneNumber);

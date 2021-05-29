@@ -63,8 +63,8 @@ namespace Ex03.GarageLogic
             string msg;
 
             msg = string.Format(
-@"{0},
-License Type: {1},
+@"{0}
+License Type: {1}
 Engine Volume: {2}", base.ToString(), m_LicenseType, m_EngineVolume);
 
             return msg;
