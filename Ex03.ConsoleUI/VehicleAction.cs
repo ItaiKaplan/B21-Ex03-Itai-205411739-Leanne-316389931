@@ -17,7 +17,7 @@ namespace Ex03.ConsoleUI
         private void endAction()
         {
             UserConsole.SleepAndClear();
-            MenuToUser.NextStepVehicleManu(r_Garage, r_Vehicle);
+            MenuToUser.NextStepVehicleMenu(r_Garage, r_Vehicle);
         }
         
         public void ChangeVehicleStatus()
@@ -53,7 +53,7 @@ namespace Ex03.ConsoleUI
                     UserConsole.ExceptionOutput(ex);
                 }
             }
-
+            UserConsole.Print("Filling air finished!");
             endAction();
         }
 
@@ -107,7 +107,7 @@ namespace Ex03.ConsoleUI
         public void VehicleInfo()
         {
             UserConsole.Print(r_Garage.VehicleInfo(r_Vehicle.LicenseNumber));
-            UserConsole.PrintAndRead("\nPress any key to go back to vehicle manu");
+            UserConsole.PrintAndRead("\nPress any key to go back to vehicle menu");
             endAction();
         }
 

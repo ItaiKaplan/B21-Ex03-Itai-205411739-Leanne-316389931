@@ -237,7 +237,7 @@ namespace Ex03.ConsoleUI
                 UserConsole.ExceptionOutput(ex);
             } finally
             {
-                UserConsole.PrintAndRead("Press any key to go back to vehicle manu");
+                UserConsole.PrintAndRead("Press any key to go back to vehicle menu");
                 endAction();
             }
         }
@@ -273,7 +273,7 @@ namespace Ex03.ConsoleUI
         private void endAction()
         {
             UserConsole.SleepAndClear();
-            MenuToUser.NextStepMainManu(r_Garage);
+            MenuToUser.NextStepMainMenu(r_Garage);
         }
 
     }

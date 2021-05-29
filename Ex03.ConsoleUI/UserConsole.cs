@@ -52,7 +52,7 @@ namespace Ex03.ConsoleUI
             Read();
         }
 
-        public static void MainManu()
+        public static void MainMenu()
         {
             string msg = string.Format(@"
 M A I N    M A N U :
@@ -66,7 +66,7 @@ Please enter the number of the operation you would like to preform:
             Print(msg);
         }
 
-        public static void VehicleManu()
+        public static void VehicleMenu()
         {
             string msg = string.Format(@"
 V E H I C L E    M A N U :
@@ -77,7 +77,7 @@ Please enter the number of the operation you would like to preform:
 3. Fill up fuel (Fuel car only)
 4. Fill up energy (Electric car only)
 5. Vehicle info
-6. Back to main manu");
+6. Back to main menu");
             Print(msg);
         }
 

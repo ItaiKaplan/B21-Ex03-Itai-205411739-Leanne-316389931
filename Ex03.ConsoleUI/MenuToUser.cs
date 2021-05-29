@@ -5,7 +5,7 @@ namespace Ex03.ConsoleUI
 {
     public class MenuToUser
     {
-        enum eMainManu
+        enum eMainMenu
         {
             AddVehicleToGarage = 1,
             ShowAllVehicles = 2,
@@ -24,13 +24,13 @@ namespace Ex03.ConsoleUI
             Back = 6
         }
 
-        public static void NextStepMainManu(Garage i_Garage)
+        public static void NextStepMainMenu(Garage i_Garage)
         {
             UserConsole outputUser = new UserConsole();
             GarageAction garageAction = new GarageAction(i_Garage);
             int userChoise;
 
-            UserConsole.MainManu();
+            UserConsole.MainMenu();
             while (true)
             {
                 try
@@ -56,7 +56,7 @@ namespace Ex03.ConsoleUI
                     garageAction.ShowVehiclesWithFilter();
                     break;
                 case 4:
-                    NextStepVehicleManu(i_Garage, null);
+                    NextStepVehicleMenu(i_Garage, null);
                     break;
                 case 5:
                     System.Environment.Exit(0);
@@ -64,7 +64,7 @@ namespace Ex03.ConsoleUI
             }
         }
 
-        public static void NextStepVehicleManu(Garage i_Garage, Vehicle i_Vehicle)
+        public static void NextStepVehicleMenu(Garage i_Garage, Vehicle i_Vehicle)
         {
             UserConsole outputUser = new UserConsole();
             int userChoise;
@@ -118,7 +118,7 @@ namespace Ex03.ConsoleUI
             {
                 try
                 {
-                    UserConsole.VehicleManu();
+                    UserConsole.VehicleMenu();
                     userChoise = InputValidation.GetInt("", 1, 6);
                     break;
                 }
@@ -147,7 +147,7 @@ namespace Ex03.ConsoleUI
                     vehicleAction.VehicleInfo();
                     break;
                 case 6:
-                    NextStepMainManu(i_Garage);
+                    NextStepMainMenu(i_Garage);
                     break;
             }
         }
