@@ -92,7 +92,7 @@ namespace Ex03.ConsoleUI
                     r_Garage.FillEnergeVehicle(r_Vehicle.LicenseNumber, amountOfEnergy);
                     break;
                 } 
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                     if(ex.Message.Contains("on fuel"))

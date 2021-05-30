@@ -1,6 +1,6 @@
 ﻿namespace Ex03.GarageLogic
 {
-    public abstract class VehicleFactory
+    public abstract class VehicleCreater
     {
         public enum eVehicleTypes
         {
