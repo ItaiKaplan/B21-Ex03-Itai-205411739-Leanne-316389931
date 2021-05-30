@@ -28,7 +28,7 @@
         { 
             for(int i = 0; i < k_NumberOfWheels; i++)
             {
-                AddWheel(new Wheel(k_MaxWheelPressure));
+                base.AddWheel(new Wheel(k_MaxWheelPressure));
             }
         }
 
@@ -36,12 +36,12 @@
         {
             get
             {
-                return m_Color;
+                return this.m_Color;
             }
 
             set
             {
-                m_Color = value;
+                this.m_Color = value;
             }
         }
 
@@ -65,7 +65,8 @@
             msg = string.Format(
 @"{0},
 Number of doors: {1}
-Color: {2}", base.ToString(), m_NumberOfDoors, m_Color);
+Color: {2}", base.ToString(),
+m_NumberOfDoors, this.m_Color);
 
             return msg;
         }
