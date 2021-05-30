@@ -20,14 +20,14 @@ namespace Ex03.ConsoleUI
         public void AddVehicleToGarage()
         {
             Vehicle vehicle;
-            VehicleFactory.eVehicleTypes vehicleType;
+            VehicleCreater.eVehicleTypes vehicleType;
             while (true)
             {
                 try
                 {
-                    vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes),
+                    vehicleType = (VehicleCreater.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleCreater.eVehicleTypes),
                         UserConsole.ChooseString("vehicle type"));
-                    vehicle = VehicleFactory.InitVehicle(vehicleType);
+                    vehicle = VehicleCreater.InitVehicle(vehicleType);
                     vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
                     vehicle.ModelName = InputValidation.GetString("\nEnter model Name: ");
                     r_Garage.AddVehicleToGarage(vehicle);

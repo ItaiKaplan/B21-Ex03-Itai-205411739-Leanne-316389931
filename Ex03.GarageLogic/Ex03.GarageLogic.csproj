@@ -36,8 +36,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\Desktop\ClassDiagram2.cd" />
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
@@ -53,7 +53,7 @@
     <Compile Include="Truck.cs" />
     <Compile Include="ValueOutOfRangeException.cs" />
     <Compile Include="Vehicle.cs" />
-    <Compile Include="VehicleFactory.cs" />
+    <Compile Include="VehicleCreater.cs" />
     <Compile Include="VehicleGarageInfo.cs" />
     <Compile Include="Wheel.cs" />
   </ItemGroup>
