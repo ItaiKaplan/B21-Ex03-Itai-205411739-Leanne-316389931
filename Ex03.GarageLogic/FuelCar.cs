@@ -17,6 +17,16 @@ namespace Ex03.GarageLogic
             this.Engine = new FuelEngine(k_FuelType, k_FuelCarMaxCapacityTank);
         }
 
+        public FuelEngine.eFuelType FuelType
+        {
+            get { return k_FuelType; }
+        }
+
+        public float MaxCapacityTank
+        {
+            get { return k_FuelCarMaxCapacityTank; }
+        }
+
         public override string ToString()
         {
             string msg;

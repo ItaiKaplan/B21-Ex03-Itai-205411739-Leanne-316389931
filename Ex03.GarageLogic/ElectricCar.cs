@@ -16,6 +16,11 @@ namespace Ex03.GarageLogic
             this.Engine = new ElectricEngine(k_MaxBatteryLife);
         }
 
+        public float MaxBattaryLife
+        {
+            get { return k_MaxBatteryLife; }
+        }
+
         public override string ToString()
         {
             string msg;

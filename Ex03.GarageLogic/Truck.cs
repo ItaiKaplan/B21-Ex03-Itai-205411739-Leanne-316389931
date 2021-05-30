@@ -37,6 +37,26 @@ namespace Ex03.GarageLogic
             set { m_MaxCarryWeight = value; }
         }
 
+        public int MaxWheelPressure
+        {
+            get { return k_MaxWheelPressure; }
+        }
+
+        public int NumberOfWheels
+        {
+            get { return k_NumberOfWheels; }
+        }
+
+        public FuelEngine.eFuelType FuelType
+        {
+            get { return k_FuelType; }
+        }
+
+        public float MaxCapacityTank
+        {
+            get { return k_FuelMaxCapacityTank; }
+        }
+
         public override string ToString()
         {
             string msg;

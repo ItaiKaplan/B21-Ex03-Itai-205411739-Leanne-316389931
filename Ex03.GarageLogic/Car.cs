@@ -34,28 +34,16 @@
 
         public eColor Color
         {
-            get
-            {
-                return m_Color;
-            }
+            get { return m_Color; }
 
-            set
-            {
-                m_Color = value;
-            }
+            set { m_Color = value; }
         }
 
         public eNumberOfDoors NumberOfDoors
         {
-            get
-            {
-                return NumberOfDoors;
-            }
+            get { return m_NumberOfDoors; }
 
-            set
-            {
-                m_NumberOfDoors = value;
-            }
+            set { m_NumberOfDoors = value; }
         }
 
         public override string ToString()
