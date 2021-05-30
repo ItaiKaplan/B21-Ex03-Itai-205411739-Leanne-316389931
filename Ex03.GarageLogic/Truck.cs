@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ex03.GarageLogic
+﻿namespace Ex03.GarageLogic
 {
     public class Truck : Vehicle
     {
-        const int k_NumberOfWheels = 16;
-        const int k_MaxWheelPressure = 26;
-        const FuelEngine.eFuelType k_FuelType = FuelEngine.eFuelType.Soler;
-        const float k_FuelMaxCapacityTank = 120;
-        bool m_ContainsDangerousMaterials;
-        float m_MaxCarryWeight;
+        private const int k_NumberOfWheels = 16;
+        private const int k_MaxWheelPressure = 26;
+        private const FuelEngine.eFuelType k_FuelType = FuelEngine.eFuelType.Soler;
+        private const float k_FuelMaxCapacityTank = 120;
+        private bool m_ContainsDangerousMaterials;
+        private float m_MaxCarryWeight;
 
         public Truck()
             : base()
@@ -66,7 +60,11 @@ namespace Ex03.GarageLogic
 {0}
 Fuel Type: {1}
 Contains Dangerous Materials: {2}
-MaxCarryWeight: {3}", base.ToString(), k_FuelType, m_ContainsDangerousMaterials, m_MaxCarryWeight);
+MaxCarryWeight: {3}", 
+base.ToString(), 
+k_FuelType, 
+this.m_ContainsDangerousMaterials, 
+this.m_MaxCarryWeight);
 
             return msg;
         }

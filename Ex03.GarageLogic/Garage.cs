@@ -6,7 +6,7 @@ namespace Ex03.GarageLogic
 {
     public class Garage
     {
-        readonly Dictionary<string, Vehicle> r_VehiclesInGarage = new Dictionary<string, Vehicle>();
+        private readonly Dictionary<string, Vehicle> r_VehiclesInGarage = new Dictionary<string, Vehicle>();
 
         public void AddVehicleToGarage(Vehicle i_Vehicle)
         {
@@ -23,14 +23,14 @@ namespace Ex03.GarageLogic
 
         public string VehicleInGarageToString(VehicleGarageInfo.eVehicleCondition i_VehicleCondition)
         {
-            StringBuilder licensNumberList = new StringBuilder("");
+            StringBuilder licensNumberList = new StringBuilder(string.Empty);
             bool conditionExistsInGarage = false;
 
-            if (r_VehiclesInGarage.Count != 0)
+            if(r_VehiclesInGarage.Count != 0)
             {
-                foreach (Vehicle vehicle in r_VehiclesInGarage.Values)
+                foreach(Vehicle vehicle in r_VehiclesInGarage.Values)
                 {
-                    if (vehicle.VehicleInfo.VehicleCondition == i_VehicleCondition)
+                    if(vehicle.VehicleInfo.VehicleCondition == i_VehicleCondition)
                     {
                         licensNumberList.Append(vehicle.LicenseNumber + "\n");
                         conditionExistsInGarage = true;
@@ -52,10 +52,11 @@ namespace Ex03.GarageLogic
 
         public string VehicleInGarageToString()
         {
-            StringBuilder licensNumberList = new StringBuilder("");
+            StringBuilder licensNumberList = new StringBuilder(string.Empty);
 
-            if (r_VehiclesInGarage.Count != 0) {
-                foreach (Vehicle vehicle in r_VehiclesInGarage.Values)
+            if(r_VehiclesInGarage.Count != 0) 
+            {
+                foreach(Vehicle vehicle in r_VehiclesInGarage.Values)
                 {
                     licensNumberList.Append(vehicle.LicenseNumber + "\n");
                 }
@@ -87,9 +88,9 @@ namespace Ex03.GarageLogic
         {
             checkIfVehicleInGarage(i_LicenseNumber);
             FuelEngine fuelEngine = r_VehiclesInGarage[i_LicenseNumber].Engine as FuelEngine;
-            if (fuelEngine != null)
+            if(fuelEngine != null)
             {
-                if (fuelEngine.FuelType != i_FuelType)
+                if(fuelEngine.FuelType != i_FuelType)
                 {
                     throw new ArgumentException("Fuel Type is not a match");
                 }
@@ -120,7 +121,7 @@ namespace Ex03.GarageLogic
 
         private void checkIfVehicleInGarage(string i_LicenseNumber)
         {
-            if (!r_VehiclesInGarage.ContainsKey(i_LicenseNumber))
+            if(!r_VehiclesInGarage.ContainsKey(i_LicenseNumber))
             {
                 throw new ArgumentException(string.Format("No vehicle with license Number {0} in the garage", i_LicenseNumber));
             }
@@ -128,7 +129,7 @@ namespace Ex03.GarageLogic
 
         private void checkIfElectriclEngine(string i_LicenseNumber)
         {
-            if (!(r_VehiclesInGarage[i_LicenseNumber].Engine is ElectricEngine))
+            if(!(r_VehiclesInGarage[i_LicenseNumber].Engine is ElectricEngine))
             {
                 throw new ArgumentException(string.Format("vehicle {0} is on fuel and not on energy!", i_LicenseNumber));
             }
@@ -142,4 +143,3 @@ namespace Ex03.GarageLogic
         }
     }
 }
-

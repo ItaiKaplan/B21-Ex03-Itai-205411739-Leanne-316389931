@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ex03.GarageLogic
+﻿namespace Ex03.GarageLogic
 {
     public class Wheel
     {
-        string m_ManufacturerName = string.Empty;
-        float m_CurrentAirPressure;
-        readonly float r_MaxAirPressure;
-
+        private readonly float r_MaxAirPressure;
+        private string m_ManufacturerName = string.Empty;
+        private float m_CurrentAirPressure;
+        
         public Wheel(float i_MaxAirPressure)
         {
             r_MaxAirPressure = i_MaxAirPressure;
@@ -63,7 +57,10 @@ namespace Ex03.GarageLogic
 
             msg = string.Format(
 @"ManufacturerName: {0}
-Air Pressure: {1} / {2}", m_ManufacturerName, m_CurrentAirPressure, r_MaxAirPressure);
+Air Pressure: {1} / {2}", 
+m_ManufacturerName, 
+m_CurrentAirPressure, 
+r_MaxAirPressure);
 
             return msg;
         }

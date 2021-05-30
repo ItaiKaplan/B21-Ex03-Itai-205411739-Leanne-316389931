@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ex03.GarageLogic
+﻿namespace Ex03.GarageLogic
 {
     public abstract class Motorcycle : Vehicle
     {
@@ -16,15 +10,15 @@ namespace Ex03.GarageLogic
             BB = 4
         }
 
-        const int k_NumberOfWheels = 2;
-        const int k_MaxWheelPressure = 30;
-        eLicenseType m_LicenseType;
-        int m_EngineVolume;
+        private const int k_NumberOfWheels = 2;
+        private const int k_MaxWheelPressure = 30;
+        private eLicenseType m_LicenseType;
+        private int m_EngineVolume;
 
         public Motorcycle()
             : base()
         {
-            for (int i = 0; i < k_NumberOfWheels; i++)
+            for(int i = 0; i < k_NumberOfWheels; i++)
             {
                 this.AddWheel(new Wheel(k_MaxWheelPressure));
             }
@@ -59,13 +53,12 @@ namespace Ex03.GarageLogic
             msg = string.Format(
 @"{0}
 License Type: {1}
-Engine Volume: {2}", base.ToString(), m_LicenseType, m_EngineVolume);
+Engine Volume: {2}", 
+base.ToString(), 
+this.m_LicenseType, 
+this.m_EngineVolume);
 
             return msg;
         }
-
-
-
-
     }
 }

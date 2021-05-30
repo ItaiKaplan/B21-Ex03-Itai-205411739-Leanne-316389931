@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
@@ -16,12 +12,12 @@ namespace Ex03.GarageLogic
             Octan98 = 4,
         }
 
-        readonly eFuelType r_FuelType;
+        private readonly eFuelType r_FuelType;
 
         public FuelEngine(eFuelType i_FuelType, float i_MaxCapacity)
             : base(i_MaxCapacity)
         {
-            r_FuelType = i_FuelType;
+            this.r_FuelType = i_FuelType;
         }
 
         public eFuelType FuelType
@@ -31,7 +27,7 @@ namespace Ex03.GarageLogic
 
         public void FillFuel(eFuelType i_FuelType, float i_AmountOfFuelToFill)
         {
-            if(i_FuelType.Equals(r_FuelType))
+            if(i_FuelType.Equals(this.r_FuelType))
             {
                 RefillEnergySource(i_AmountOfFuelToFill);
             } 
@@ -40,8 +36,5 @@ namespace Ex03.GarageLogic
                 throw new ArgumentException("Fuel type does not match!");
             }
         }
-
-
-
     }
 }

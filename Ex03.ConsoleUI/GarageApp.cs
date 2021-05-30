@@ -4,7 +4,7 @@ namespace Ex03.ConsoleUI
 {
     internal class GarageApp
     {
-        readonly Garage r_Garage = new Garage();
+        private readonly Garage r_Garage = new Garage();
 
         internal void StartGarageApp()
         {

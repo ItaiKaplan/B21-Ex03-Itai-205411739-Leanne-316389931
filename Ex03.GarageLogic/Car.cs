@@ -18,10 +18,10 @@
             Five = 4
         }
 
-        const int k_NumberOfWheels = 4;
-        const int k_MaxWheelPressure = 32;
-        eColor m_Color;
-        eNumberOfDoors m_NumberOfDoors;
+        private const int k_NumberOfWheels = 4;
+        private const int k_MaxWheelPressure = 32;
+        private eColor m_Color;
+        private eNumberOfDoors m_NumberOfDoors;
 
         public Car()
             : base()
@@ -56,8 +56,10 @@
             msg = string.Format(
 @"{0},
 Number of doors: {1}
-Color: {2}", base.ToString(),
-m_NumberOfDoors, this.m_Color);
+Color: {2}", 
+base.ToString(),
+m_NumberOfDoors, 
+this.m_Color);
 
             return msg;
         }

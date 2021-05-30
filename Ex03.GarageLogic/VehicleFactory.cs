@@ -10,11 +10,12 @@
             ElectricMotorcycle = 4,
             Truck = 5
         }
+
         public static Vehicle InitVehicle(eVehicleTypes i_VehicleType)
         {
             Vehicle newVehicle = null;
 
-            switch (i_VehicleType)
+            switch(i_VehicleType)
             {
                 case eVehicleTypes.FuelCar:
                     newVehicle = new FuelCar();

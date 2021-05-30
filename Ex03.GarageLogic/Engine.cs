@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ex03.GarageLogic
+﻿namespace Ex03.GarageLogic
 {
     public abstract class Engine
     {
-        readonly float r_MaxCapacity = 0;
-        float m_CurrentCapacity = 0;
+        private readonly float r_MaxCapacity = 0;
+        private float m_CurrentCapacity = 0;
 
         public Engine(float i_MaxCapacity)
         {
@@ -38,11 +32,5 @@ namespace Ex03.GarageLogic
                 throw new ValueOutOfRangeException(0, (r_MaxCapacity - m_CurrentCapacity) * 60);
             }
         }
-
-
-
-
-
-
     }
 }

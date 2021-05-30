@@ -3,10 +3,10 @@ using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
 {
-    class VehicleAction
+    public class VehicleAction
     {
-        readonly Vehicle r_Vehicle;
-        readonly Garage r_Garage;
+        private readonly Vehicle r_Vehicle;
+        private readonly Garage r_Garage;
 
         public VehicleAction(Vehicle i_Vehicle, Garage i_Garage)
         {
@@ -22,7 +22,7 @@ namespace Ex03.ConsoleUI
         
         public void ChangeVehicleStatus()
         {
-            while (true)
+            while(true)
             {
                 try
                 {
@@ -30,7 +30,7 @@ namespace Ex03.ConsoleUI
                     r_Garage.ChangeVehicleCondition(r_Vehicle.LicenseNumber, vehicleStatus);
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -41,14 +41,14 @@ namespace Ex03.ConsoleUI
 
         public void FillAirWheels()
         {
-            while (true)
+            while(true)
             {
                 try
                 {
                     r_Garage.FillAirToMax(r_Vehicle.LicenseNumber);
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -60,7 +60,7 @@ namespace Ex03.ConsoleUI
 
         public void FillFuelVehicle()
         {
-            while (true)
+            while(true)
             {
                 try
                 {
@@ -69,7 +69,7 @@ namespace Ex03.ConsoleUI
                     r_Garage.FillFuelVehicle(r_Vehicle.LicenseNumber, fuelTypeInput, amountOfFuel);
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                     if(ex.Message.Contains("not on fuel!"))
@@ -84,21 +84,21 @@ namespace Ex03.ConsoleUI
 
         public void FillElectricVehicle()
         {
-            while (true)
+            while(true)
             {
                 try
                 {
                     float amountOfEnergy = InputValidation.GetFloat("Enter the amount of minutes of energy to add");
                     r_Garage.FillEnergeVehicle(r_Vehicle.LicenseNumber, amountOfEnergy);
                     break;
-                } catch (Exception ex)
+                } 
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                     if(ex.Message.Contains("on fuel"))
                     {
                         break;
                     }
-
                 }
             }
 
@@ -111,6 +111,5 @@ namespace Ex03.ConsoleUI
             UserConsole.PrintAndRead("\nPress any key to go back to vehicle menu");
             endAction();
         }
-
     }
 }

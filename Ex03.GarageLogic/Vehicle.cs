@@ -4,12 +4,12 @@ namespace Ex03.GarageLogic
 {
     public abstract class Vehicle 
     {
-        string m_ModelName = string.Empty;
-        string m_LicenseNumber = string.Empty;
-        float m_RemainingEnergyPrecentage = 0;
-        protected Engine m_Engine = null;
-        readonly List<Wheel> r_Wheels = new List<Wheel>();
-        VehicleGarageInfo m_VehicleGarageInfo = null; 
+        private string m_ModelName = string.Empty;
+        private string m_LicenseNumber = string.Empty;
+        private float m_RemainingEnergyPrecentage = 0;
+        private protected Engine m_Engine = null;
+        private readonly List<Wheel> r_Wheels = new List<Wheel>();
+        private VehicleGarageInfo m_VehicleGarageInfo = null; 
 
         public VehicleGarageInfo VehicleInfo
         {
@@ -68,7 +68,15 @@ Wheels info:
         {4}    
 Stage In Garage: {5}
 Owner Name: {6}
-Owner Phone Number: {7}", m_ModelName, m_LicenseNumber, m_RemainingEnergyPrecentage, r_Wheels.Count,r_Wheels[0], m_VehicleGarageInfo.VehicleCondition, m_VehicleGarageInfo.OwnerName, m_VehicleGarageInfo.OwnerPhoneNumber);
+Owner Phone Number: {7}", 
+m_ModelName, 
+m_LicenseNumber, 
+m_RemainingEnergyPrecentage, 
+r_Wheels.Count,
+r_Wheels[0], 
+m_VehicleGarageInfo.VehicleCondition, 
+m_VehicleGarageInfo.OwnerName, 
+m_VehicleGarageInfo.OwnerPhoneNumber);
             
             return msg;
         }

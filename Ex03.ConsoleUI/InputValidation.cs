@@ -14,11 +14,11 @@ namespace Ex03.ConsoleUI
             UserConsole.Print(i_Msg);
             stringInput = UserConsole.Read();
             isNumber = float.TryParse(stringInput, out o_InputNumber);
-            if (!isNumber)
+            if(!isNumber)
             {
                 throw new FormatException("The input is not a number");
             }
-            else if (o_InputNumber < 0)
+            else if(o_InputNumber < 0)
             {
                 throw new Exception("The input is not a positive number");
             }
@@ -50,6 +50,7 @@ namespace Ex03.ConsoleUI
             {
                 throw new ArgumentException("The input is not a number");
             }
+
             return stringInput;
         }
 
@@ -72,18 +73,17 @@ namespace Ex03.ConsoleUI
 
             UserConsole.Print(i_Msg);
             stringInput = UserConsole.Read();
-            if (stringInput.Length == 0)
+            if(stringInput.Length == 0)
             {
                 throw new Exception("Please enter a string");
             }
             else
             { 
                 return stringInput;
-            }
-                
+            }  
         }
 
-        public static bool GetBool(String i_Msg)
+        public static bool GetBool(string i_Msg)
         {
             string inputString;
             bool result = true;
@@ -109,11 +109,11 @@ namespace Ex03.ConsoleUI
             bool isNumber;
 
             isNumber = int.TryParse(i_Input, out o_InputNumber);
-            if (!isNumber)
+            if(!isNumber)
             {
                 throw new FormatException("The input is not a number");
             }
-            else if (o_InputNumber < 0)
+            else if(o_InputNumber < 0)
             {
                 throw new Exception("The input is not a positive number");
             }
@@ -121,10 +121,9 @@ namespace Ex03.ConsoleUI
             {
                 return o_InputNumber;
             }
-
         }
 
-        public static int EnumChoiseToInt(Type i_EnumType, String i_msg)
+        public static int EnumChoiseToInt(Type i_EnumType, string i_msg)
         {
             string userInput;
             string msg;

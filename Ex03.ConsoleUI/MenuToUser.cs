@@ -5,7 +5,7 @@ namespace Ex03.ConsoleUI
 {
     public class MenuToUser
     {
-        enum eMainMenu
+        private enum eMainMenu
         {
             AddVehicleToGarage = 1,
             ShowAllVehicles = 2,
@@ -14,7 +14,7 @@ namespace Ex03.ConsoleUI
             Exit = 5
         }
 
-        enum eVehicleMenu
+        private enum eVehicleMenu
         {
             ChangeVehicleStatus = 1,
             FillAirWheels = 2,
@@ -31,13 +31,14 @@ namespace Ex03.ConsoleUI
             int userChoise;
 
             UserConsole.MainMenu();
-            while (true)
+            while(true)
             {
                 try
                 {
-                    userChoise = InputValidation.GetInt("", 1, 5);
+                    userChoise = InputValidation.GetInt(string.Empty, 1, 5);
                     break;
-                } catch(Exception ex)
+                } 
+                catch(Exception ex)
                 {
                     UserConsole.Print(ex.Message);
                 }
@@ -73,16 +74,16 @@ namespace Ex03.ConsoleUI
             VehicleAction vehicleAction = null;
             bool inputAnswer = true;
 
-            if (i_Vehicle != null)
+            if(i_Vehicle != null)
             {
-                while (true)
+                while(true)
                 {
                     try
                     {
                         inputAnswer = InputValidation.GetBool("Do you want to switch vehicle?");
                         break;
                     }
-                    catch (Exception ex)
+                    catch(Exception ex)
                     {
                         UserConsole.ExceptionOutput(ex);
                     }
@@ -91,13 +92,12 @@ namespace Ex03.ConsoleUI
                 if(!inputAnswer)
                 {
                     vehicleAction = new VehicleAction(i_Vehicle, i_Garage);
-
                 }
             }
 
             if(inputAnswer)
             {
-                while (true)
+                while(true)
                 {
                     try
                     {
@@ -105,7 +105,7 @@ namespace Ex03.ConsoleUI
                         vehicle = i_Garage.GetVehicle(licenseNumber);
                         break;
                     }
-                    catch (Exception ex)
+                    catch(Exception ex)
                     {
                         UserConsole.ExceptionOutput(ex);
                     }
@@ -114,22 +114,22 @@ namespace Ex03.ConsoleUI
                 vehicleAction = new VehicleAction(vehicle, i_Garage);
             }
 
-            while (true)
+            while(true)
             {
                 try
                 {
                     UserConsole.VehicleMenu();
-                    userChoise = InputValidation.GetInt("", 1, 6);
+                    userChoise = InputValidation.GetInt(string.Empty, 1, 6);
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
             }
 
             UserConsole.SleepAndClear();
-            switch (userChoise)
+            switch(userChoise)
             {
                 case 1:
                     vehicleAction.ChangeVehicleStatus();

@@ -5,7 +5,7 @@ namespace Ex03.ConsoleUI
 {
     internal class GarageAction
     {
-        readonly Garage r_Garage;
+        private readonly Garage r_Garage;
 
         internal GarageAction(Garage i_Garage)
         {
@@ -21,11 +21,12 @@ namespace Ex03.ConsoleUI
         {
             Vehicle vehicle;
             VehicleFactory.eVehicleTypes vehicleType;
-            while (true)
+            while(true)
             {
                 try
                 {
-                    vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(typeof(VehicleFactory.eVehicleTypes),
+                    vehicleType = (VehicleFactory.eVehicleTypes)InputValidation.EnumChoiseToInt(
+                        typeof(VehicleFactory.eVehicleTypes),
                         UserConsole.ChooseString("vehicle type"));
                     vehicle = VehicleFactory.InitVehicle(vehicleType);
                     vehicle.LicenseNumber = InputValidation.GetString("\nEnter License number: ");
@@ -33,11 +34,12 @@ namespace Ex03.ConsoleUI
                     r_Garage.AddVehicleToGarage(vehicle);
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
             }
+
             vehicle.VehicleInfo = setVehicleInfo();
             setEnergy(vehicle);
             UserConsole.SleepAndClear();
@@ -46,14 +48,14 @@ namespace Ex03.ConsoleUI
             setExtraDeatails(vehicle);
             UserConsole.Print("\nVehicle was added successfully!");
             endAction();
-
         }
 
         private VehicleGarageInfo setVehicleInfo()
         {
             VehicleGarageInfo vehicleGarageInfo;
 
-            while (true) {
+            while(true) 
+            {
                 try
                 {
                     string ownerName = InputValidation.GetString("\nEnter owner Name: ");
@@ -89,7 +91,7 @@ namespace Ex03.ConsoleUI
             FuelEngine.eFuelType fuelType;
             float fuelAmount = 0;
 
-            while (true)
+            while(true)
             {
                 try
                 {
@@ -98,10 +100,9 @@ namespace Ex03.ConsoleUI
                     fuelType = (FuelEngine.eFuelType)InputValidation.EnumChoiseToInt(typeof(FuelEngine.eFuelType), UserConsole.ChooseString("fuel type"));
                     fuelAmount = InputValidation.GetFloat("\nEnter amount of fuel you want to fill: ");
                     fuelEngine.FillFuel(fuelType, fuelAmount);
-                    break;
-                    
+                    break;    
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -114,7 +115,7 @@ namespace Ex03.ConsoleUI
         {
             float energyAmount = 0;
 
-            while (true)
+            while(true)
             {
                 try
                 {
@@ -124,7 +125,7 @@ namespace Ex03.ConsoleUI
                     ElectricEngine.RefillEnergySource(energyAmount);
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -138,13 +139,13 @@ namespace Ex03.ConsoleUI
             float airInput;
             string wheelManufacture;
 
-            while (true)
+            while(true)
             {
                 try
                 {
                     wheelManufacture = InputValidation.GetString("\nEnter wheel manufacture: ");
                     airInput = InputValidation.GetFloat("\nEnter how much air you want to add to the wheels: ");
-                    foreach (Wheel wheel in i_Vehicle.Wheels)
+                    foreach(Wheel wheel in i_Vehicle.Wheels)
                     {
                         wheel.InflateWheel(airInput);
                         wheel.ManufacturerName = wheelManufacture;
@@ -152,7 +153,7 @@ namespace Ex03.ConsoleUI
 
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -177,7 +178,7 @@ namespace Ex03.ConsoleUI
 
         private void setCarInfo(Car i_Car)
         {
-            while (true)
+            while(true)
             {
                 try
                 {
@@ -185,7 +186,7 @@ namespace Ex03.ConsoleUI
                     i_Car.NumberOfDoors = (Car.eNumberOfDoors)InputValidation.EnumChoiseToInt(typeof(Car.eNumberOfDoors), UserConsole.ChooseString("number of doors for car"));
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -194,7 +195,7 @@ namespace Ex03.ConsoleUI
 
         private void setMotorcycleInfo(Motorcycle i_Motorcycle)
         {
-            while (true)
+            while(true)
             {
                 try
                 {
@@ -202,7 +203,7 @@ namespace Ex03.ConsoleUI
                     i_Motorcycle.EngineVolume = InputValidation.GetPositiveInt("\nEnter Engine volume: ");
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -211,7 +212,7 @@ namespace Ex03.ConsoleUI
 
         private void setTruckInfo(Truck i_Truck)
         {
-            while (true)
+            while(true)
             {
                 try
                 {
@@ -219,7 +220,7 @@ namespace Ex03.ConsoleUI
                     i_Truck.MaxCarryWeight = InputValidation.GetFloat("\nEnter max carry weight: ");
                     break;
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -232,10 +233,12 @@ namespace Ex03.ConsoleUI
             {
                 UserConsole.Print("All vehicals in the garage: \n");
                 UserConsole.Print(r_Garage.VehicleInGarageToString());
-            } catch(Exception ex)
+            } 
+            catch(Exception ex)
             {
                 UserConsole.ExceptionOutput(ex);
-            } finally
+            } 
+            finally
             {
                 UserConsole.PrintAndRead("Press any key to go back to vehicle menu");
                 endAction();
@@ -246,16 +249,16 @@ namespace Ex03.ConsoleUI
         {
             VehicleGarageInfo.eVehicleCondition vehicleCondition;
 
-            while (true)
+            while(true)
             {
                 try
                 {
                     vehicleCondition = (VehicleGarageInfo.eVehicleCondition)InputValidation.EnumChoiseToInt(typeof(VehicleGarageInfo.eVehicleCondition), UserConsole.ChooseString("vehicle condition"));
                     UserConsole.Print(string.Format("All vehicles in the garage that are {0}:", vehicleCondition.ToString()));
-
                     UserConsole.Print(r_Garage.VehicleInGarageToString(vehicleCondition));
                     break;
-                } catch(Exception ex)
+                } 
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }
@@ -266,7 +269,6 @@ namespace Ex03.ConsoleUI
                 }
             }
 
-
             endAction();
         }
 
@@ -275,6 +277,5 @@ namespace Ex03.ConsoleUI
             UserConsole.SleepAndClear();
             MenuToUser.NextStepMainMenu(r_Garage);
         }
-
     }
 }

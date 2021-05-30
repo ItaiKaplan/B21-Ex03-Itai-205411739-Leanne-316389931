@@ -8,10 +8,10 @@ namespace Ex03.ConsoleUI
     {
         public static string EnumToString(Type i_EnumType)
         {
-            StringBuilder enumToString = new StringBuilder("");
+            StringBuilder enumToString = new StringBuilder(string.Empty);
             int counter = 1;
 
-            foreach (Enum enumValue in Enum.GetValues(i_EnumType))
+            foreach(Enum enumValue in Enum.GetValues(i_EnumType))
             {
                 enumToString.Append(counter + ". " + enumValue.ToString() + "\n");
                 counter++;
@@ -55,7 +55,7 @@ namespace Ex03.ConsoleUI
         public static void MainMenu()
         {
             string msg = string.Format(@"
-M A I N    M A N U :
+M A I N    M E N U :
 
 Please enter the number of the operation you would like to preform:
 1. Add a new vehicle to the garage
@@ -69,7 +69,7 @@ Please enter the number of the operation you would like to preform:
         public static void VehicleMenu()
         {
             string msg = string.Format(@"
-V E H I C L E    M A N U :
+V E H I C L E    M E N U :
 
 Please enter the number of the operation you would like to preform:
 1. Change vehicle status 
@@ -91,7 +91,5 @@ Please enter the number of the operation you would like to preform:
             Thread.Sleep(1000);
             Clear();
         }
-
-
     }
 }

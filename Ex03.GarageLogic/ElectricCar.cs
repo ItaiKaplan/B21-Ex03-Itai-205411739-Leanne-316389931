@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ex03.GarageLogic
+﻿namespace Ex03.GarageLogic
 {
     public class ElectricCar : Car
     {
-        const float k_MaxBatteryLife = (float)3.2;
+        private const float k_MaxBatteryLife = (float)3.2;
 
         public ElectricCar()
-            :base()
+            : base()
         {
             this.Engine = new ElectricEngine(k_MaxBatteryLife);
         }
@@ -27,7 +21,8 @@ namespace Ex03.GarageLogic
 
             msg = string.Format(
 @"This Vehicle is: Electric Car
-{0}", base.ToString());
+{0}", 
+base.ToString());
 
             return msg;
         }
