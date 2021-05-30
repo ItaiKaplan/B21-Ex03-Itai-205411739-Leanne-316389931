@@ -29,7 +29,7 @@ namespace Ex03.GarageLogic
         {
             if(i_FuelType.Equals(this.r_FuelType))
             {
-                RefillEnergySource(i_AmountOfFuelToFill);
+                RefillEnergySource(i_AmountOfFuelToFill, !true);
             } 
             else
             {

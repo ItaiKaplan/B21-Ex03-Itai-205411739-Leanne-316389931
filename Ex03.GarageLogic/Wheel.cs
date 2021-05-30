@@ -57,7 +57,7 @@
 
             msg = string.Format(
 @"ManufacturerName: {0}
-Air Pressure: {1} / {2}", 
+      Air Pressure: {1} / {2}", 
 m_ManufacturerName, 
 m_CurrentAirPressure, 
 r_MaxAirPressure);

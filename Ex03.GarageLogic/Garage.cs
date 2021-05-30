@@ -108,7 +108,7 @@ namespace Ex03.GarageLogic
         {
             checkIfVehicleInGarage(i_LicenseNumber);
             checkIfElectriclEngine(i_LicenseNumber);
-            r_VehiclesInGarage[i_LicenseNumber].Engine.RefillEnergySource(i_AmountToFillInMinutes / 60);
+            r_VehiclesInGarage[i_LicenseNumber].Engine.RefillEnergySource(i_AmountToFillInMinutes / 60, true);
             r_VehiclesInGarage[i_LicenseNumber].SetEnergyPercentage();
         }
 

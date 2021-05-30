@@ -3,12 +3,12 @@ using Ex03.GarageLogic;
 
 namespace Ex03.ConsoleUI
 {
-    public class VehicleAction
+    internal class VehicleAction
     {
         private readonly Vehicle r_Vehicle;
         private readonly Garage r_Garage;
 
-        public VehicleAction(Vehicle i_Vehicle, Garage i_Garage)
+        internal VehicleAction(Vehicle i_Vehicle, Garage i_Garage)
         {
             r_Vehicle = i_Vehicle;
             r_Garage = i_Garage;
@@ -20,7 +20,7 @@ namespace Ex03.ConsoleUI
             MenuToUser.NextStepVehicleMenu(r_Garage, r_Vehicle);
         }
         
-        public void ChangeVehicleStatus()
+        internal void ChangeVehicleStatus()
         {
             while(true)
             {
@@ -39,7 +39,7 @@ namespace Ex03.ConsoleUI
             endAction();
         }
 
-        public void FillAirWheels()
+        internal void FillAirWheels()
         {
             while(true)
             {
@@ -58,7 +58,7 @@ namespace Ex03.ConsoleUI
             endAction();
         }
 
-        public void FillFuelVehicle()
+        internal void FillFuelVehicle()
         {
             while(true)
             {
@@ -82,7 +82,7 @@ namespace Ex03.ConsoleUI
             endAction();
         }
 
-        public void FillElectricVehicle()
+        internal void FillElectricVehicle()
         {
             while(true)
             {
@@ -105,7 +105,7 @@ namespace Ex03.ConsoleUI
             endAction();
         }
 
-        public void VehicleInfo()
+        internal void VehicleInfo()
         {
             UserConsole.Print(r_Garage.VehicleInfo(r_Vehicle.LicenseNumber));
             UserConsole.PrintAndRead("\nPress any key to go back to vehicle menu");

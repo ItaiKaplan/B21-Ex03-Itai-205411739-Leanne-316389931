@@ -21,7 +21,7 @@
             set { m_CurrentCapacity = value; }
         }
 
-        public void RefillEnergySource(float i_EnergyAmountToFill)
+        public void RefillEnergySource(float i_EnergyAmountToFill, bool i_IsElectric)
         {
             if(m_CurrentCapacity + i_EnergyAmountToFill <= r_MaxCapacity)
             {
@@ -29,7 +29,14 @@
             } 
             else
             {
-                throw new ValueOutOfRangeException(0, (r_MaxCapacity - m_CurrentCapacity) * 60);
+                if (i_IsElectric)
+                {
+                    throw new ValueOutOfRangeException(0, ((r_MaxCapacity - m_CurrentCapacity) * 60));
+                }
+                else
+                {
+                    throw new ValueOutOfRangeException(0, (r_MaxCapacity - m_CurrentCapacity));
+                }
             }
         }
     }

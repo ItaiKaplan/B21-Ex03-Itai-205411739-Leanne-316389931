@@ -17,7 +17,7 @@ namespace Ex03.ConsoleUI
             get { return r_Garage; }
         }
 
-        public void AddVehicleToGarage()
+        internal void AddVehicleToGarage()
         {
             Vehicle vehicle;
             VehicleCreater.eVehicleTypes vehicleType;
@@ -121,7 +121,7 @@ namespace Ex03.ConsoleUI
                     ElectricEngine ElectricEngine = i_Vehicle.Engine as ElectricEngine;
                     UserConsole.SleepAndClear();
                     energyAmount = InputValidation.GetFloat("\nEnter amount of minutes of energy you want to fill: ");
-                    ElectricEngine.RefillEnergySource(energyAmount);
+                    ElectricEngine.FillEnergy(energyAmount);
                     break;
                 }
                 catch(Exception ex)
@@ -226,7 +226,7 @@ namespace Ex03.ConsoleUI
             }
         }
 
-        public void ShowAllVehicles()
+        internal void ShowAllVehicles()
         {
             try
             {
@@ -244,7 +244,7 @@ namespace Ex03.ConsoleUI
             }
         }
 
-        public void ShowVehiclesWithFilter()
+        internal void ShowVehiclesWithFilter()
         {
             VehicleGarageInfo.eVehicleCondition vehicleCondition;
 

@@ -36,7 +36,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Desktop\ClassDiagram2.cd" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
