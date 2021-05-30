@@ -232,10 +232,12 @@ namespace Ex03.ConsoleUI
             {
                 UserConsole.Print("All vehicals in the garage: \n");
                 UserConsole.Print(r_Garage.VehicleInGarageToString());
-            } catch(Exception ex)
+            } 
+            catch(Exception ex)
             {
                 UserConsole.ExceptionOutput(ex);
-            } finally
+            } 
+            finally
             {
                 UserConsole.PrintAndRead("Press any key to go back to vehicle menu");
                 endAction();
@@ -255,7 +257,8 @@ namespace Ex03.ConsoleUI
 
                     UserConsole.Print(r_Garage.VehicleInGarageToString(vehicleCondition));
                     break;
-                } catch(Exception ex)
+                } 
+                catch(Exception ex)
                 {
                     UserConsole.ExceptionOutput(ex);
                 }

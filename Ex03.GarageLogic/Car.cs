@@ -36,10 +36,7 @@
         {
             get { return m_Color; }
 
-            set
-            {
-                m_Color = value;
-            }
+            set { m_Color = value; }
         }
 
         public eNumberOfDoors NumberOfDoors

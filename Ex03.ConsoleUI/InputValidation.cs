@@ -121,7 +121,6 @@ namespace Ex03.ConsoleUI
             {
                 return o_InputNumber;
             }
-
         }
 
         public static int EnumChoiseToInt(Type i_EnumType, String i_msg)

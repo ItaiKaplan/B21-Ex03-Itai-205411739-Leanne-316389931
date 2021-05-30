@@ -37,7 +37,8 @@ namespace Ex03.ConsoleUI
                 {
                     userChoise = InputValidation.GetInt("", 1, 5);
                     break;
-                } catch(Exception ex)
+                } 
+                catch(Exception ex)
                 {
                     UserConsole.Print(ex.Message);
                 }
