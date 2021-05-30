@@ -42,6 +42,16 @@ namespace Ex03.GarageLogic
             set { m_EngineVolume = value; }
         }
 
+        public int MaxWheelPressure
+        {
+            get { return k_MaxWheelPressure; }
+        }
+
+        public int NumberOfWheels
+        {
+            get { return k_NumberOfWheels; }
+        }
+
         public override string ToString()
         {
             string msg;
