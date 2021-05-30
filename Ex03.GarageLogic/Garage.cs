@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
 
         public void AddVehicleToGarage(Vehicle i_Vehicle)
         {
-            if (r_VehiclesInGarage.ContainsKey(i_Vehicle.LicenseNumber))
+            if(r_VehiclesInGarage.ContainsKey(i_Vehicle.LicenseNumber))
             {
                 r_VehiclesInGarage[i_Vehicle.LicenseNumber].VehicleInfo.VehicleCondition = VehicleGarageInfo.eVehicleCondition.InProgress;
                 throw new Exception("This vehicle is already in the garage, status changed to 'In progress' ");

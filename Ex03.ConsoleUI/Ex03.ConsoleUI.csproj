@@ -37,6 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="..\..\..\..\..\Desktop\ClassDiagram1.cd">
+      <Link>ClassDiagram1.cd</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GarageAction.cs" />
